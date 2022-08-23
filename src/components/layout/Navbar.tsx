@@ -31,22 +31,22 @@ export const Navbar: FC<Props> = (props) => {
         className={styles.burger}
       />
       <MantineNavbar.Section mt='md'>
-        <AnchorSelf href='about' color='white'>
+        <AnchorSelf href='/about' color='white'>
           About
         </AnchorSelf>
       </MantineNavbar.Section>
       <MantineNavbar.Section>
-        <AnchorSelf href='blog' color='white'>
+        <AnchorSelf href='/blog' color='white'>
           Blog
         </AnchorSelf>
       </MantineNavbar.Section>
       <MantineNavbar.Section>
-        <AnchorSelf href='portfolio' color='white'>
+        <AnchorSelf href='/portfolio' color='white'>
           Portfolio
         </AnchorSelf>
       </MantineNavbar.Section>
       <MantineNavbar.Section>
-        <AnchorSelf href='contact' color='white'>
+        <AnchorSelf href='/contact' color='white'>
           Contact
         </AnchorSelf>
       </MantineNavbar.Section>

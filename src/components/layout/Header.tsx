@@ -44,10 +44,10 @@ export const Header: FC<Props> = (props) => {
           <Group position='right' spacing='xs'>
             {!isMobileUi && (
               <div className={styles.menu}>
-                <AnchorSelf href='about'>About</AnchorSelf>
-                <AnchorSelf href='blog'>Blog</AnchorSelf>
-                <AnchorSelf href='portfolio'>Portfolio</AnchorSelf>
-                <AnchorSelf href='contact'>Contact</AnchorSelf>
+                <AnchorSelf href='/about'>About</AnchorSelf>
+                <AnchorSelf href='/blog'>Blog</AnchorSelf>
+                <AnchorSelf href='/portfolio'>Portfolio</AnchorSelf>
+                <AnchorSelf href='/contact'>Contact</AnchorSelf>
               </div>
             )}
             <ActionIcon
