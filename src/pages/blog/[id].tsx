@@ -10,11 +10,16 @@ import {
   Title,
   TypographyStylesProvider,
 } from '@mantine/core';
-import { blogData, BlogDataType } from 'data/blogData';
+
+import { useAtom } from 'jotai';
+import { blogDataAtom, BlogDataType } from 'src/atoms/blogData';
 
 const BlogPage: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
+
+  // ブログデータの取得
+  const [blogData] = useAtom(blogDataAtom);
   const blogs: BlogDataType[] = blogData.filter((data) => data.id === id);
   const blog = blogs[0];
 
