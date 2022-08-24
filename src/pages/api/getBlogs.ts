@@ -9,7 +9,7 @@ const minifiyData = (data: Array<BlogDataType>): Array<BlogDataType> =>
       id: datum.id,
       title: datum.title,
       content: datum.content,
-      createdAt: datum.createdAt,
+      publishedAt: datum.publishedAt,
     };
 
     return newObj;

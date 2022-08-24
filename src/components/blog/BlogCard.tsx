@@ -22,7 +22,7 @@ export const BlogCard: FC<Props> = (props) => {
         </Text>
       </TypographyStylesProvider>
       <Text size='xs' color='dimmed'>
-        {props.data.createdAt}
+        {props.data.publishedAt}
       </Text>
     </Paper>
   );
