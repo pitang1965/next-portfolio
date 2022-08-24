@@ -3,6 +3,7 @@ import { Paper, Text, TypographyStylesProvider } from '@mantine/core';
 import { AnchorSelf } from 'src/components/common/AnchorSelf';
 import { BlogDataType } from 'src/atoms/blogData';
 import { removeTags } from 'src/utils/removeTags';
+import { formatDate } from 'src/utils/formatDate';
 
 type Props = {
   data: BlogDataType;
@@ -22,7 +23,7 @@ export const BlogCard: FC<Props> = (props) => {
         </Text>
       </TypographyStylesProvider>
       <Text size='xs' color='dimmed'>
-        {props.data.publishedAt}
+        {formatDate(props.data.publishedAt, 'YYYY.MM.DD')}
       </Text>
     </Paper>
   );

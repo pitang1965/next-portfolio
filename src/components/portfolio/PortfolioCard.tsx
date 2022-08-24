@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Paper, Text } from '@mantine/core';
 import { removeTags } from 'src/utils/removeTags';
 import { PortfolioDataType } from 'src/atoms/portfolioData';
+import { formatDate } from 'src/utils/formatDate';
 
 type Props = {
   data: PortfolioDataType;
@@ -27,7 +28,10 @@ export const PortfolioCard: FC<Props> = (props) => {
         {removeTags(props.data.description)}
       </Text>
       <Text size='xs' color='dimmed'>
-        {`${props.data.dateFrom} - ${props.data.dateTo}`}
+        {`${formatDate(props.data.dateFrom, 'YYYY.MM')} - ${formatDate(
+          props.data.dateTo,
+          'YYYY.MM'
+        )}`}
       </Text>
     </Paper>
   );
