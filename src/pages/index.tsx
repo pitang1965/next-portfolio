@@ -8,7 +8,6 @@ import { PortfolioSection } from 'src/components/portfolio/PortfolioSection';
 import { GitHubSection } from 'src/components/github/GitHubSection';
 import { TwitterSection } from 'src/components/twitter/TwitterSection';
 
-import { client } from 'src/libs/client';
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
 import { blogDataAtom, BlogDataType } from 'src/atoms/blogData';
@@ -45,27 +44,25 @@ const HomePage: NextPage<{ blogData: BlogDataType[] }> = ({ blogData }) => {
   );
 };
 
-const minifiyData = (data: Array<BlogDataType>): Array<BlogDataType> =>
-  data.map((datum) => {
-    const newObj: BlogDataType = {
-      id: datum.id,
-      title: datum.title,
-      content: datum.content,
-      createdAt: datum.createdAt,
-    };
-
-    return newObj;
-  });
-
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await client.get({ endpoint: 'blog' });
-  const minifiedData = minifiyData(res.contents);
+  try {
+    const origin = process.env.BASE_URL ?? 'http://localhost:3000';
+    const response = await fetch(`${origin}/api/getBlogs`);
+    const data = await response.json();
 
-  return {
-    props: {
-      blogData: minifiedData,
-    },
-  };
+    return {
+      props: {
+        blogData: data,
+      },
+    };
+  } catch (err) {
+    console.error(err);
+    return {
+      props: {
+        err: 'データ取得で問題が発生しました。',
+      },
+    };
+  }
 };
 
 export default HomePage;
