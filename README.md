@@ -11,7 +11,7 @@
 * TypeScript
 
 ## 環境変数
-* BASE_URL: localhost:3000 or https://***.vercel.app
+* BASE_URL: http://localhost:3000 or https://***.vercel.app
 * MICROCMS_API_KEY
 
 ## 詳細
