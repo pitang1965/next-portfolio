@@ -11,15 +11,21 @@ import { TwitterSection } from 'src/components/twitter/TwitterSection';
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
 import { blogDataAtom, BlogDataType } from 'src/atoms/blogData';
+import { portfolioDataAtom, PortfolioDataType } from 'src/atoms/portfolioData';
 
-const HomePage: NextPage<{ blogData: BlogDataType[] }> = ({ blogData }) => {
+const HomePage: NextPage<{
+  blogData: BlogDataType[];
+  portfolioData: PortfolioDataType[];
+}> = ({ blogData, portfolioData }) => {
   const [isMobileUi] = useAtom(isMobileUiAtom);
   const gridSpan = isMobileUi ? 12 : 6;
 
   const [_, setBlogData] = useAtom(blogDataAtom);
+  const [__, setPortfolioData] = useAtom(portfolioDataAtom);
 
   useEffect(() => {
     setBlogData(blogData);
+    setPortfolioData(portfolioData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -44,15 +50,21 @@ const HomePage: NextPage<{ blogData: BlogDataType[] }> = ({ blogData }) => {
   );
 };
 
+
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const origin = process.env.BASE_URL ?? 'http://localhost:3000';
-    const response = await fetch(`${origin}/api/getBlogs`);
-    const data = await response.json();
+
+    const res_blog = await fetch(`${origin}/api/getBlogs`);
+    const blogData = await res_blog.json();
+
+    const res_portfolio = await fetch(`${origin}/api/getPortfolios`);
+    const portfolioData = await res_portfolio.json();
 
     return {
       props: {
-        blogData: data,
+        blogData: blogData,
+        portfolioData: portfolioData,
       },
     };
   } catch (err) {

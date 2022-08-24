@@ -2,28 +2,19 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
 import { Paper, Text } from '@mantine/core';
+import { removeTags } from 'src/utils/removeTags';
+import { PortfolioDataType } from 'src/atoms/portfolioData';
 
 type Props = {
-  data: Data;
+  data: PortfolioDataType;
 };
-
-type Data = {
-  id: string;
-  title: string;
-  description: string;
-  siteUrl: string;
-  imageUrl: string;
-  dateFrom: string;
-  dateTo: string;
-};
-
 
 export const PortfolioCard: FC<Props> = (props) => {
   return (
     <Paper>
-      <a href = {props.data.siteUrl}>
+      <a href={props.data.siteUrl}>
         <Image
-          src={props.data.imageUrl}
+          src={props.data.imageUrl.url}
           alt={props.data.title}
           width={358}
           height={184}
@@ -33,7 +24,7 @@ export const PortfolioCard: FC<Props> = (props) => {
         {props.data.title}
       </Text>
       <Text size='sm' weight={500} lineClamp={2}>
-        {props.data.description}
+        {removeTags(props.data.description)}
       </Text>
       <Text size='xs' color='dimmed'>
         {`${props.data.dateFrom} - ${props.data.dateTo}`}
