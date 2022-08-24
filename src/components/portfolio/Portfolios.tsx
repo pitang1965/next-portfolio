@@ -27,7 +27,7 @@ export const Portfolios: FC<Props> = ({ isHomePage }) => {
         gap: '24px',
       }}
     >
-      {portfolioData.slice(0, numbersToShow).map((portfolio) => (
+      {portfolioData?.slice(0, numbersToShow).map((portfolio) => (
         <PortfolioCard key={portfolio.id} data={portfolio} />
       ))}
     </Container>

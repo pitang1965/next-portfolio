@@ -9,7 +9,7 @@ export const Tweets = () => {
   return (
     <Container fluid>
       <Stack spacing='xl'>
-        {tweetData.slice(0, numbersToShow).map((tweet, index) => (
+        {tweetData?.slice(0, numbersToShow).map((tweet, index) => (
           <TwitterCard data={tweet} key={index} index={index} />
         ))}
       </Stack>

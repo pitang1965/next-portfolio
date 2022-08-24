@@ -13,7 +13,7 @@ export const GitHubRepos = () => {
   return (
     <Container fluid>
       <Stack spacing='xl'>
-        {githubData.slice(0, numbersToShow).map((repo) => (
+        {githubData?.slice(0, numbersToShow).map((repo) => (
           <GitHubCard data={repo} key={repo.id} />
         ))}
       </Stack>

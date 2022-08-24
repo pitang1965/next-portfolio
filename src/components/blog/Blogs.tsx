@@ -21,7 +21,7 @@ export const Blogs: FC<Props> = ({ isHomePage }) => {
   return (
     <Container sx={{ width: '100%' }}>
       <Stack spacing='xl'>
-        {blogData.slice(0, numberToShow).map((blog) => (
+        {blogData?.slice(0, numberToShow).map((blog) => (
           <BlogCard data={blog} key={blog.id} />
         ))}
       </Stack>
