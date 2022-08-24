@@ -10,6 +10,7 @@ import {
   Title,
   TypographyStylesProvider,
 } from '@mantine/core';
+import { formatDate } from 'src/utils/formatDate';
 
 import { useAtom } from 'jotai';
 import { blogDataAtom, BlogDataType } from 'src/atoms/blogData';
@@ -33,6 +34,9 @@ const BlogPage: NextPage = () => {
               {blog.title}
             </Title>
             <Divider mt='sm' />
+            <Text size='xs' color='dimmed'>
+              {formatDate(blog.publishedAt, 'YYYY.MM.DD')}
+            </Text>
             <TypographyStylesProvider>
               <Text size='sm' weight={500}>
                 <div dangerouslySetInnerHTML={{ __html: blog.content }} />
