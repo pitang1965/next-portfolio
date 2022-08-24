@@ -8,7 +8,7 @@ import { PortfolioSection } from 'src/components/portfolio/PortfolioSection';
 import { GitHubSection } from 'src/components/github/GitHubSection';
 import { TwitterSection } from 'src/components/twitter/TwitterSection';
 
-import { client } from 'src/lib/client';
+import { client } from 'src/libs/client';
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
 import { blogDataAtom, BlogDataType } from 'src/atoms/blogData';
