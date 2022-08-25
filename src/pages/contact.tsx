@@ -14,18 +14,42 @@ import {
 } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
+export type ContactFormInput = {
+  email: string;
+  name: string;
+  message: string;
+};
+
 const ContactPage: NextPage = () => {
   const form = useForm({
     initialValues: {
       email: '',
       name: '',
-      termsOfService: false,
+      message: '',
     },
 
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
     },
   });
+
+  const onSubmit = async (values: typeof form.values) => {
+    try {
+      // microCMSに送信
+      await fetch('/api/sendContact', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+      form.reset();
+    } catch (error) {
+      console.error('Fetch error: ', error);
+      alert(JSON.stringify(error));
+    }
+  };
 
   return (
     <Layout content='Contact'>
@@ -36,7 +60,7 @@ const ContactPage: NextPage = () => {
         </Title>
         <Divider mt='sm' />
         <Box sx={{ maxWidth: 300 }} mx='auto'>
-          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+          <form onSubmit={form.onSubmit((values) => onSubmit(values))}>
             <Space h='md' />
 
             <TextInput
