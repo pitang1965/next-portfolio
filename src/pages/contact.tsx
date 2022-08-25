@@ -18,6 +18,7 @@ const ContactPage: NextPage = () => {
   const form = useForm({
     initialValues: {
       email: '',
+      name: '',
       termsOfService: false,
     },
 
