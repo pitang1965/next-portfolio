@@ -4,19 +4,23 @@ import { BlogCard } from './BlogCard';
 
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
-import { blogDataAtom } from 'src/atoms/blogData';
+
+export type BlogDataType = {
+  id: string;
+  title: string;
+  content: string;
+  publishedAt: string;
+};
 
 type Props = {
+  blogData: BlogDataType[];
   isHomePage: boolean;
 };
 
-export const Blogs: FC<Props> = ({ isHomePage }) => {
+export const Blogs: FC<Props> = ({ blogData, isHomePage }) => {
   // ブログをいくつ表示するかどうか（モバイル表示かどうか、ホームページかどうかで異なる）
   const [isMobileUi] = useAtom(isMobileUiAtom);
   const numberToShow = isHomePage ? (isMobileUi ? 4 : 5) : isMobileUi ? 5 : 10;
-
-  // ブログデータの取得
-  const [blogData] = useAtom(blogDataAtom);
 
   return (
     <Container sx={{ width: '100%' }}>

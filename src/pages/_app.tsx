@@ -52,6 +52,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         theme={{ colorScheme: colorScheme }}
       >
         <MyGlobalStyles />
+
         <Component {...pageProps} />
       </MantineProvider>
     </ColorSchemeProvider>

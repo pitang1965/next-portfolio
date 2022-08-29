@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Paper, Text, TypographyStylesProvider } from '@mantine/core';
 import { AnchorSelf } from 'src/components/common/AnchorSelf';
-import { BlogDataType } from 'src/atoms/blogData';
+import { BlogDataType } from 'src/components/blog/Blogs';
 import { removeTags } from 'src/utils/removeTags';
 import { formatDate } from 'src/utils/formatDate';
 

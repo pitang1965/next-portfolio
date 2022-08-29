@@ -1,8 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import type { NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { Layout } from 'src/components/layout/Layout';
 import {
+  Center,
   Container,
   Divider,
   Space,
@@ -11,44 +12,88 @@ import {
   TypographyStylesProvider,
 } from '@mantine/core';
 import { formatDate } from 'src/utils/formatDate';
+import { BlogDataType } from 'src/components/blog/Blogs';
 
-import { useAtom } from 'jotai';
-import { blogDataAtom, BlogDataType } from 'src/atoms/blogData';
+type Props = {
+  data: BlogDataType;
+};
 
-const BlogPage: NextPage = () => {
+const BlogPage: NextPage<Props> = ({ data }) => {
   const router = useRouter();
   const { id } = router.query;
 
-  // ブログデータの取得
-  const [blogData] = useAtom(blogDataAtom);
-  const blogs: BlogDataType[] = blogData.filter((data) => data.id === id);
-  const blog = blogs[0];
+  if (typeof id !== 'string') {
+    return (
+      <Layout content='Blog'>
+        <Container>
+          <Center>
+            <Text>データが取得できませんでした。</Text>
+          </Center>
+        </Container>
+      </Layout>
+    );
+  }
 
   return (
     <Layout content='Blog'>
       <Container>
         <Space h='md' />
-        {blog ? (
+        {data !== undefined ? (
           <>
             <Title order={2} align='left'>
-              {blog.title}
+              {data.title}
             </Title>
             <Divider mt='sm' />
             <Text size='xs' color='dimmed'>
-              {formatDate(blog.publishedAt, 'YYYY.MM.DD')}
+              {formatDate(data.publishedAt, 'YYYY.MM.DD')}
             </Text>
             <TypographyStylesProvider>
               <Text size='sm' weight={500}>
-                <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+                <div dangerouslySetInnerHTML={{ __html: data.content }} />
               </Text>
             </TypographyStylesProvider>
           </>
         ) : (
-          <h2>エラー：記事がありません</h2>
+          <Text>{`エラー：記事がありません。　id: ${id}`}</Text>
         )}
       </Container>
     </Layout>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const origin = process.env.BASE_URL ?? 'http://localhost:3000';
+  const res = await fetch(`${origin}/api/blog`);
+  const blogs = await res.json();
+  const paths = blogs.map((blog: BlogDataType) => `/blog/${blog.id}`);
+
+  return { paths, fallback: false };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  try {
+    const id = context.params?.id;
+    console.log('----: ', id);
+
+    const origin = process.env.BASE_URL ?? 'http://localhost:3000';
+
+    const res = await fetch(`${origin}/api/blog`);
+    const blogs = await res.json();
+    const data = blogs.filter((blog: BlogDataType) => blog.id === id);
+
+    return {
+      props: {
+        data: data[0],
+      },
+    };
+  } catch (err) {
+    console.error(err);
+    return {
+      props: {
+        err: 'データ取得で問題が発生しました。',
+      },
+    };
+  }
 };
 
 export default BlogPage;

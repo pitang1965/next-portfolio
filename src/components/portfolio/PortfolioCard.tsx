@@ -2,8 +2,8 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
 import { Paper, Text } from '@mantine/core';
+import { PortfolioDataType } from './Portfolios';
 import { removeTags } from 'src/utils/removeTags';
-import { PortfolioDataType } from 'src/atoms/portfolioData';
 import { formatDate } from 'src/utils/formatDate';
 
 type Props = {

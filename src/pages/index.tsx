@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { Layout } from 'src/components/layout/Layout';
 import { Container, Grid, Stack } from '@mantine/core';
@@ -7,35 +7,27 @@ import { BlogSection } from 'src/components/blog/BlogSection';
 import { PortfolioSection } from 'src/components/portfolio/PortfolioSection';
 import { GitHubSection } from 'src/components/github/GitHubSection';
 import { TwitterSection } from 'src/components/twitter/TwitterSection';
-
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
-import { blogDataAtom, BlogDataType } from 'src/atoms/blogData';
-import { portfolioDataAtom, PortfolioDataType } from 'src/atoms/portfolioData';
+import { BlogDataType } from 'src/components/blog/Blogs';
+import { PortfolioDataType } from 'src/components/portfolio/Portfolios';
 
-const HomePage: NextPage<{
+type Props = {
   blogData: BlogDataType[];
   portfolioData: PortfolioDataType[];
-}> = ({ blogData, portfolioData }) => {
+};
+
+const HomePage: NextPage<Props> = ({ blogData, portfolioData }) => {
   const [isMobileUi] = useAtom(isMobileUiAtom);
   const gridSpan = isMobileUi ? 12 : 6;
-
-  const [_, setBlogData] = useAtom(blogDataAtom);
-  const [__, setPortfolioData] = useAtom(portfolioDataAtom);
-
-  useEffect(() => {
-    setBlogData(blogData);
-    setPortfolioData(portfolioData);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <Layout content='Home'>
       <Container>
         <Stack spacing='lg'>
           <TitleSection name='ピータン' />
-          <BlogSection />
-          <PortfolioSection />
+          <BlogSection blogData={blogData} />
+          <PortfolioSection portfolioData={portfolioData}/>
           <Grid>
             <Grid.Col span={gridSpan}>
               <GitHubSection />
@@ -45,26 +37,25 @@ const HomePage: NextPage<{
             </Grid.Col>
           </Grid>
         </Stack>
-      </Container>
+      </Container>{' '}
     </Layout>
   );
 };
-
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const origin = process.env.BASE_URL ?? 'http://localhost:3000';
 
-    const res_blog = await fetch(`${origin}/api/getBlogs`);
+    const res_blog = await fetch(`${origin}/api/blog`);
     const blogData = await res_blog.json();
 
-    const res_portfolio = await fetch(`${origin}/api/getPortfolios`);
+    const res_portfolio = await fetch(`${origin}/api/portfolio`);
     const portfolioData = await res_portfolio.json();
 
     return {
       props: {
-        blogData: blogData,
-        portfolioData: portfolioData,
+        blogData,
+        portfolioData,
       },
     };
   } catch (err) {

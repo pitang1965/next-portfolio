@@ -4,19 +4,31 @@ import { PortfolioCard } from './PortfolioCard';
 
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
-import { portfolioDataAtom } from 'src/atoms/portfolioData';
+
+export type PortfolioDataType = {
+  id: string;
+  title: string;
+  description: string;
+  siteUrl: string;
+  imageUrl: {
+    url: string;
+    height: number;
+    width: number;
+  };
+  dateFrom: string;
+  dateTo: string;
+  publishedAt: string;
+};
 
 type Props = {
+  portfolioData: PortfolioDataType[];
   isHomePage: boolean;
 };
 
-export const Portfolios: FC<Props> = ({ isHomePage }) => {
+export const Portfolios: FC<Props> = ({ portfolioData, isHomePage }) => {
   // ポートフォリをいくつ表示するかどうか（モバイル表示かどうか、ホームページかどうかで異なる）
   const [isMobileUi] = useAtom(isMobileUiAtom);
   const numbersToShow = isHomePage ? (isMobileUi ? 3 : 6) : isMobileUi ? 4 : 9;
-
-  // ポートフォリオデータの取得
-  const [portfolioData] = useAtom(portfolioDataAtom);
 
   return (
     <Container

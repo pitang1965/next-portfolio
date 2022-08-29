@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Center, Container, Divider, Stack, Title } from '@mantine/core';
 import { LinkButton } from 'src/components/common/LinkButton';
 import { Blogs } from './Blogs';
 import { AnchorSelf } from 'src/components/common/AnchorSelf';
+import { BlogDataType } from './Blogs';
 
-export const BlogSection = () => {
+type Props = {
+  blogData: BlogDataType[];
+};
+
+export const BlogSection: FC<Props> = ({blogData}) => {
   return (
     <Container sx={{ width: '100%' }}>
       <Stack spacing='lg'>
@@ -12,7 +17,7 @@ export const BlogSection = () => {
           Blog
         </Title>
         <Divider mt='sm' />
-        <Blogs isHomePage />
+        <Blogs isHomePage blogData={blogData} />
         <Center>
           <AnchorSelf href='/blog'>
             <LinkButton>View All</LinkButton>

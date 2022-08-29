@@ -1,33 +1,26 @@
 import React from 'react';
-import { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import { Layout } from 'src/components/layout/Layout';
+import { Container, Divider, Space, Title } from '@mantine/core';
 import {
-  Center,
-  Container,
-  Divider,
-  Loader,
-  Space,
-  Title,
-} from '@mantine/core';
-import { Blogs, BlogDataType } from 'src/components/blog/Blogs';
+  Portfolios,
+  PortfolioDataType,
+} from 'src/components/portfolio/Portfolios';
 
 type Props = {
-  data: BlogDataType[];
+  data: PortfolioDataType[];
 };
 
-const BlogPage: NextPage<Props> = ({ data }) => {
+const PortfolioPage: NextPage<Props> = ({ data }) => {
   return (
-    <Layout content='Blog'>
+    <Layout content='Portfolio'>
       <Container>
         <Space h='md' />
         <Title order={2} align='left'>
-          Blog
+          Portfolio
         </Title>
         <Divider mt='sm' />
-        <Blogs blogData={data} isHomePage={false} />
-        <Center>
-          <Loader color='red' />
-        </Center>
+        <Portfolios portfolioData={data} isHomePage={false} />
       </Container>
     </Layout>
   );
@@ -37,7 +30,7 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const origin = process.env.BASE_URL ?? 'http://localhost:3000';
 
-    const res = await fetch(`${origin}/api/blog`);
+    const res = await fetch(`${origin}/api/portfolio`);
     const data = await res.json();
 
     return {
@@ -55,4 +48,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 };
 
-export default BlogPage;
+export default PortfolioPage;

@@ -1,19 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { client } from './client';
-import { BlogDataType } from 'src/atoms/blogData';
-
-const minifiyData = (data: Array<BlogDataType>): Array<BlogDataType> =>
-  data.map((datum) => {
-    const newObj: BlogDataType = {
-      id: datum.id,
-      title: datum.title,
-      content: datum.content,
-      publishedAt: datum.publishedAt,
-    };
-
-    return newObj;
-  });
+import { BlogDataType } from 'src/components/blog/Blogs';
 
 export default async function handler(
   req: NextApiRequest,
@@ -21,8 +9,7 @@ export default async function handler(
 ) {
   try {
     const data = await client.get({ endpoint: 'blog' });
-    const minifiedData = minifiyData(data.contents);
-    res.status(200).json(minifiedData);
+    res.status(200).json(data.contents);
   } catch (err) {
     console.error(err);
     res.statusCode = 500;

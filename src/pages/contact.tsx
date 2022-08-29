@@ -36,7 +36,7 @@ const ContactPage: NextPage = () => {
   const onSubmit = async (values: typeof form.values) => {
     try {
       // microCMSに送信
-      await fetch('/api/sendContact', {
+      await fetch('/api/contact', {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',
