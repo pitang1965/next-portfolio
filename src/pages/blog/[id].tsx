@@ -73,7 +73,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
     const id = context.params?.id;
-    console.log('----: ', id);
 
     const origin = process.env.BASE_URL ?? 'http://localhost:3000';
 
