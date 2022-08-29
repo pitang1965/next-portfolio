@@ -10,6 +10,7 @@ import {
   Title,
 } from '@mantine/core';
 import { Blogs, BlogDataType } from 'src/components/blog/Blogs';
+import { client } from 'src/pages/api/client';
 
 type Props = {
   data: BlogDataType[];
@@ -35,14 +36,11 @@ const BlogPage: NextPage<Props> = ({ data }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const origin = process.env.BASE_URL ?? 'http://localhost:3000';
-
-    const res = await fetch(`${origin}/api/blog`);
-    const data = await res.json();
+    const res = await client.get({ endpoint: 'blog' });
 
     return {
       props: {
-        data,
+        data: res.contents,
       },
     };
   } catch (err) {

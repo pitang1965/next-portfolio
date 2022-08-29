@@ -13,6 +13,7 @@ import {
 } from '@mantine/core';
 import { formatDate } from 'src/utils/formatDate';
 import { BlogDataType } from 'src/components/blog/Blogs';
+import { client } from 'src/pages/api/client';
 
 type Props = {
   data: BlogDataType;
@@ -62,23 +63,17 @@ const BlogPage: NextPage<Props> = ({ data }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const origin = process.env.BASE_URL ?? 'http://localhost:3000';
-  const res = await fetch(`${origin}/api/blog`);
-  const blogs = await res.json();
-  const paths = blogs.map((blog: BlogDataType) => `/blog/${blog.id}`);
+  const res = await client.get({ endpoint: 'blog' });
+  const paths = res.contents.map((blog: BlogDataType) => `/blog/${blog.id}`);
 
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
+    const res = await client.get({ endpoint: 'blog' });
     const id = context.params?.id;
-
-    const origin = process.env.BASE_URL ?? 'http://localhost:3000';
-
-    const res = await fetch(`${origin}/api/blog`);
-    const blogs = await res.json();
-    const data = blogs.filter((blog: BlogDataType) => blog.id === id);
+    const data = res.contents.filter((blog: BlogDataType) => blog.id === id);
 
     return {
       props: {

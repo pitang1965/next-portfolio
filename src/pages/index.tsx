@@ -11,6 +11,7 @@ import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
 import { BlogDataType } from 'src/components/blog/Blogs';
 import { PortfolioDataType } from 'src/components/portfolio/Portfolios';
+import { client } from 'src/pages/api/client';
 
 type Props = {
   blogData: BlogDataType[];
@@ -27,7 +28,7 @@ const HomePage: NextPage<Props> = ({ blogData, portfolioData }) => {
         <Stack spacing='lg'>
           <TitleSection name='ピータン' />
           <BlogSection blogData={blogData} />
-          <PortfolioSection portfolioData={portfolioData}/>
+          <PortfolioSection portfolioData={portfolioData} />
           <Grid>
             <Grid.Col span={gridSpan}>
               <GitHubSection />
@@ -44,18 +45,13 @@ const HomePage: NextPage<Props> = ({ blogData, portfolioData }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const origin = process.env.BASE_URL ?? 'http://localhost:3000';
-
-    const res_blog = await fetch(`${origin}/api/blog`);
-    const blogData = await res_blog.json();
-
-    const res_portfolio = await fetch(`${origin}/api/portfolio`);
-    const portfolioData = await res_portfolio.json();
+    const res_blog = await client.get({ endpoint: 'blog' });
+    const res_portfolio = await client.get({ endpoint: 'portfolio' });
 
     return {
       props: {
-        blogData,
-        portfolioData,
+        blogData: res_blog.contents,
+        portfolioData: res_portfolio.contents,
       },
     };
   } catch (err) {

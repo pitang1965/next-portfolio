@@ -6,6 +6,7 @@ import {
   Portfolios,
   PortfolioDataType,
 } from 'src/components/portfolio/Portfolios';
+import { client } from 'src/pages/api/client';
 
 type Props = {
   data: PortfolioDataType[];
@@ -28,14 +29,11 @@ const PortfolioPage: NextPage<Props> = ({ data }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const origin = process.env.BASE_URL ?? 'http://localhost:3000';
-
-    const res = await fetch(`${origin}/api/portfolio`);
-    const data = await res.json();
+    const res = await client.get({ endpoint: 'portfolio' });
 
     return {
       props: {
-        data,
+        data: res.contents,
       },
     };
   } catch (err) {
