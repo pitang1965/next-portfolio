@@ -35,7 +35,7 @@ const ContactPage: NextPage = () => {
     },
   });
 
-  const onSubmit = async (values: typeof form.values) => {
+  const handleSubmit = async (values: typeof form.values) => {
     try {
       // microCMSに送信
       await fetch('/api/contact', {
@@ -67,7 +67,7 @@ const ContactPage: NextPage = () => {
         </Title>
         <Divider mt='sm' />
         <Box sx={{ maxWidth: 300 }} mx='auto'>
-          <form onSubmit={form.onSubmit((values) => onSubmit(values))}>
+          <form onSubmit={form.onSubmit(handleSubmit)}>
             <Space h='md' />
 
             <TextInput
