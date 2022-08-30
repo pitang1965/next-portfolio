@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { Layout } from 'src/components/layout/Layout';
@@ -12,14 +13,14 @@ import {
   TypographyStylesProvider,
 } from '@mantine/core';
 import { formatDate } from 'src/utils/formatDate';
-import { BlogDataType } from 'src/components/blog/Blogs';
+import { PortfolioDataType } from 'src/components/portfolio/Portfolios';
 import { client } from 'src/pages/api/client';
 
 type Props = {
-  data: BlogDataType;
+  data: PortfolioDataType;
 };
 
-const BlogDetailPage: NextPage<Props> = ({ data }) => {
+const PortfolioDetailPage: NextPage<Props> = ({ data }) => {
   const router = useRouter();
   const { id } = router.query;
 
@@ -36,7 +37,7 @@ const BlogDetailPage: NextPage<Props> = ({ data }) => {
   }
 
   return (
-    <Layout content='Blog'>
+    <Layout content='Portfolio'>
       <Container>
         <Space h='md' />
         {data !== undefined ? (
@@ -46,11 +47,23 @@ const BlogDetailPage: NextPage<Props> = ({ data }) => {
             </Title>
             <Divider mt='sm' />
             <Text size='xs' color='dimmed'>
-              {formatDate(data.publishedAt, 'YYYY.MM.DD')}
+              {`${formatDate(data.dateFrom, 'YYYY.MM')} - ${formatDate(
+                data.dateTo,
+                'YYYY.MM'
+              )}`}
             </Text>
+            <a href={data.siteUrl}>
+              <Image
+                src={data.imageUrl.url}
+                alt={data.title}
+                layout='responsive'
+                width={data.imageUrl.width}
+                height={data.imageUrl.height}
+              />
+            </a>
             <TypographyStylesProvider>
               <Text size='sm' weight={500}>
-                <div dangerouslySetInnerHTML={{ __html: data.content }} />
+                <div dangerouslySetInnerHTML={{ __html: data.description }} />
               </Text>
             </TypographyStylesProvider>
           </>
@@ -63,8 +76,10 @@ const BlogDetailPage: NextPage<Props> = ({ data }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await client.get({ endpoint: 'blog' });
-  const paths = res.contents.map((blog: BlogDataType) => `/blog/${blog.id}`);
+  const res = await client.get({ endpoint: 'portfolio' });
+  const paths = res.contents.map(
+    (portfolio: PortfolioDataType) => `/portfolio/${portfolio.id}`
+  );
 
   return { paths, fallback: false };
 };
@@ -72,7 +87,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
     const id = context.params?.id;
-    const res = await client.get({ endpoint: 'blog', contentId: id as string });
+    const res = await client.get({
+      endpoint: 'portfolio',
+      contentId: id as string,
+    });
 
     return {
       props: {
@@ -89,4 +107,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 };
 
-export default BlogDetailPage;
+export default PortfolioDetailPage;

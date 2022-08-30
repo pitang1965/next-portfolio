@@ -2,6 +2,7 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
 import { Paper, Text } from '@mantine/core';
+import { AnchorSelf } from 'src/components/common/AnchorSelf';
 import { PortfolioDataType } from './Portfolios';
 import { removeTags } from 'src/utils/removeTags';
 import { formatDate } from 'src/utils/formatDate';
@@ -21,9 +22,11 @@ export const PortfolioCard: FC<Props> = (props) => {
           height={184}
         />
       </a>
-      <Text size='lg' weight={700}>
-        {props.data.title}
-      </Text>
+      <AnchorSelf href={`/portfolio/${props.data.id}`}>
+        <Text size='lg' weight={700}>
+          {props.data.title}
+        </Text>
+      </AnchorSelf>
       <Text size='sm' weight={500} lineClamp={2}>
         {removeTags(props.data.description)}
       </Text>
