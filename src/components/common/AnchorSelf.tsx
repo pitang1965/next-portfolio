@@ -11,7 +11,6 @@ type Props = {
 
 export const AnchorSelf: FC<Props> = (props) => {
   const router = useRouter();
-  console.log(`href: ${props.href} asPath: ${router.asPath}`);
 
   // このリンク先に今いるかどうか
   function isthePath(): boolean {
