@@ -2,10 +2,8 @@ import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { Layout } from 'src/components/layout/Layout';
 import {
-  Center,
   Container,
   Divider,
-  Loader,
   Space,
   Title,
 } from '@mantine/core';
@@ -26,9 +24,9 @@ const BlogPage: NextPage<Props> = ({ data }) => {
         </Title>
         <Divider mt='sm' />
         <Blogs blogData={data} isHomePage={false} />
-        <Center>
+        {/* <Center>
           <Loader color='red' />
-        </Center>
+        </Center> */}
       </Container>
     </Layout>
   );
