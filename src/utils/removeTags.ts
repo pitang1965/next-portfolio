@@ -3,5 +3,5 @@ export const removeTags = (str: string):string => {
     return '';
   }
 
-  return str.replace(/(<([^>]+)>)/ig, '');
+  return str.replace(/(<([^>]+)>)/ig, '').replace(/&nbsp;/ig, ' ');
 }
