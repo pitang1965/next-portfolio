@@ -35,6 +35,10 @@ const BlogDetailPage: NextPage<Props> = ({ data }) => {
     );
   }
 
+  if (router.isFallback) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <Layout content='Blog'>
       <Container>
@@ -57,16 +61,20 @@ const BlogDetailPage: NextPage<Props> = ({ data }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await client.get({ endpoint: 'blog' });
+  const res = await client.get({ endpoint: 'blog', queries: { limit: 5 } });
   const paths = res.contents.map((blog: BlogDataType) => `/blog/${blog.id}`);
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
     const id = context.params?.id;
-    const res = await client.get({ endpoint: 'blog', contentId: id as string });
+    const res = await client.get({
+      endpoint: 'blog',
+      contentId: id as string,
+      queries: { limit: 1 },
+    });
 
     return {
       props: {

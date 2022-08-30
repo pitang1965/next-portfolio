@@ -45,8 +45,14 @@ const HomePage: NextPage<Props> = ({ blogData, portfolioData }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const res_blog = await client.get({ endpoint: 'blog' });
-    const res_portfolio = await client.get({ endpoint: 'portfolio' });
+    const res_blog = await client.get({
+      endpoint: 'blog',
+      queries: { limit: 10 },
+    });
+    const res_portfolio = await client.get({
+      endpoint: 'portfolio',
+      queries: { limit: 10 },
+    });
 
     return {
       props: {

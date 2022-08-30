@@ -37,6 +37,10 @@ const PortfolioDetailPage: NextPage<Props> = ({ data }) => {
     );
   }
 
+  if (router.isFallback) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <Layout content='Portfolio'>
       <Container>
@@ -73,12 +77,15 @@ const PortfolioDetailPage: NextPage<Props> = ({ data }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await client.get({ endpoint: 'portfolio' });
+  const res = await client.get({
+    endpoint: 'portfolio',
+    queries: { limit: 5 },
+  });
   const paths = res.contents.map(
     (portfolio: PortfolioDataType) => `/portfolio/${portfolio.id}`
   );
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -87,6 +94,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const res = await client.get({
       endpoint: 'portfolio',
       contentId: id as string,
+      queries: { limit: 1 },
     });
 
     return {

@@ -29,7 +29,10 @@ const PortfolioPage: NextPage<Props> = ({ data }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const res = await client.get({ endpoint: 'portfolio' });
+    const res = await client.get({
+      endpoint: 'portfolio',
+      queries: { limit: 10000 },
+    });
 
     return {
       props: {

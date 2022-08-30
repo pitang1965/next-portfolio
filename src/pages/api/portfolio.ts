@@ -8,7 +8,10 @@ export default async function handler(
   res: NextApiResponse<Array<PortfolioDataType>>
 ) {
   try {
-    const data = await client.get({ endpoint: 'portfolio' });
+    const data = await client.get({
+      endpoint: 'portfolio',
+      queries: { limit: 10000 },
+    });
     res.status(200).json(data.contents);
   } catch (err) {
     console.error(err);

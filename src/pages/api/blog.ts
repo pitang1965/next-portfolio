@@ -8,7 +8,10 @@ export default async function handler(
   res: NextApiResponse<Array<BlogDataType>>
 ) {
   try {
-    const data = await client.get({ endpoint: 'blog' });
+    const data = await client.get({
+      endpoint: 'blog',
+      queries: { limit: 10000 },
+    });
     res.status(200).json(data.contents);
   } catch (err) {
     console.error(err);
