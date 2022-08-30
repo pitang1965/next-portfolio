@@ -71,13 +71,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
-    const res = await client.get({ endpoint: 'blog' });
     const id = context.params?.id;
-    const data = res.contents.filter((blog: BlogDataType) => blog.id === id);
+    const res = await client.get({ endpoint: 'blog', contentId: id as string });
 
     return {
       props: {
-        data: data[0],
+        data: res,
       },
     };
   } catch (err) {
