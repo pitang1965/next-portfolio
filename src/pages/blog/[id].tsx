@@ -23,7 +23,7 @@ const BlogDetailPage: NextPage<Props> = ({ data }) => {
   const router = useRouter();
   const { id } = router.query;
 
-  if (typeof id !== 'string') {
+  if (typeof id !== 'string' || data === undefined) {
     return (
       <Layout content='Blog'>
         <Container>
@@ -39,24 +39,18 @@ const BlogDetailPage: NextPage<Props> = ({ data }) => {
     <Layout content='Blog'>
       <Container>
         <Space h='md' />
-        {data !== undefined ? (
-          <>
-            <Title order={2} align='left'>
-              {data.title}
-            </Title>
-            <Divider mt='sm' />
-            <Text size='xs' color='dimmed'>
-              {formatDate(data.publishedAt, 'YYYY.MM.DD')}
-            </Text>
-            <TypographyStylesProvider>
-              <Text size='sm' weight={500}>
-                <div dangerouslySetInnerHTML={{ __html: data.content }} />
-              </Text>
-            </TypographyStylesProvider>
-          </>
-        ) : (
-          <Text>{`エラー：データがありません。　id: ${id}`}</Text>
-        )}
+        <Title order={2} align='left'>
+          {data.title}
+        </Title>
+        <Divider mt='sm' />
+        <Text size='xs' color='dimmed'>
+          {formatDate(data.publishedAt, 'YYYY.MM.DD')}
+        </Text>
+        <TypographyStylesProvider>
+          <Text size='sm' weight={500}>
+            <div dangerouslySetInnerHTML={{ __html: data.content }} />
+          </Text>
+        </TypographyStylesProvider>
       </Container>
     </Layout>
   );

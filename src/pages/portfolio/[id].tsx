@@ -24,7 +24,7 @@ const PortfolioDetailPage: NextPage<Props> = ({ data }) => {
   const router = useRouter();
   const { id } = router.query;
 
-  if (typeof id !== 'string') {
+  if (typeof id !== 'string' || data === undefined) {
     return (
       <Layout content='Blog'>
         <Container>
@@ -40,36 +40,30 @@ const PortfolioDetailPage: NextPage<Props> = ({ data }) => {
     <Layout content='Portfolio'>
       <Container>
         <Space h='md' />
-        {data !== undefined ? (
-          <>
-            <Title order={2} align='left'>
-              {data.title}
-            </Title>
-            <Divider mt='sm' />
-            <Text size='xs' color='dimmed'>
-              {`${formatDate(data.dateFrom, 'YYYY.MM')} - ${formatDate(
-                data.dateTo,
-                'YYYY.MM'
-              )}`}
-            </Text>
-            <a href={data.siteUrl}>
-              <Image
-                src={data.imageUrl.url}
-                alt={data.title}
-                layout='responsive'
-                width={data.imageUrl.width}
-                height={data.imageUrl.height}
-              />
-            </a>
-            <TypographyStylesProvider>
-              <Text size='sm' weight={500}>
-                <div dangerouslySetInnerHTML={{ __html: data.description }} />
-              </Text>
-            </TypographyStylesProvider>
-          </>
-        ) : (
-          <Text>{`エラー：データがありません。　id: ${id}`}</Text>
-        )}
+        <Title order={2} align='left'>
+          {data.title}
+        </Title>
+        <Divider mt='sm' />
+        <Text size='xs' color='dimmed'>
+          {`${formatDate(data.dateFrom, 'YYYY.MM')} - ${formatDate(
+            data.dateTo,
+            'YYYY.MM'
+          )}`}
+        </Text>
+        <a href={data.siteUrl}>
+          <Image
+            src={data.imageUrl.url}
+            alt={data.title}
+            layout='responsive'
+            width={data.imageUrl.width}
+            height={data.imageUrl.height}
+          />
+        </a>
+        <TypographyStylesProvider>
+          <Text size='sm' weight={500}>
+            <div dangerouslySetInnerHTML={{ __html: data.description }} />
+          </Text>
+        </TypographyStylesProvider>
       </Container>
     </Layout>
   );
