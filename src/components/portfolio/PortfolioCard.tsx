@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { FC } from 'react';
 import Image from 'next/image';
-import { Paper, Text } from '@mantine/core';
+import { Paper, Text, Tooltip } from '@mantine/core';
 import { AnchorSelf } from 'src/components/common/AnchorSelf';
 import { PortfolioDataType } from './Portfolios';
 import { removeTags } from 'src/utils/removeTags';
@@ -14,18 +14,22 @@ type Props = {
 export const PortfolioCard: FC<Props> = (props) => {
   return (
     <Paper>
-      <a href={props.data.siteUrl}>
-        <Image
-          src={props.data.imageUrl.url}
-          alt={props.data.title}
-          width={358}
-          height={184}
-        />
-      </a>
+      <Tooltip label='サイトに飛ぶよ'>
+        <a href={props.data.siteUrl}>
+          <Image
+            src={props.data.imageUrl.url}
+            alt={props.data.title}
+            width={358}
+            height={184}
+          />
+        </a>
+      </Tooltip>
       <AnchorSelf href={`/portfolio/${props.data.id}`}>
-        <Text size='lg' weight={700}>
-          {props.data.title}
-        </Text>
+        <Tooltip label='詳細ページに飛ぶよ'>
+          <Text size='lg' weight={700}>
+            {props.data.title}
+          </Text>
+        </Tooltip>
       </AnchorSelf>
       <Text size='sm' weight={500} lineClamp={2}>
         {removeTags(props.data.description)}

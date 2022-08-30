@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Paper, Text, TypographyStylesProvider } from '@mantine/core';
+import { Paper, Text, Tooltip, TypographyStylesProvider } from '@mantine/core';
 import { AnchorSelf } from 'src/components/common/AnchorSelf';
 import { BlogDataType } from 'src/components/blog/Blogs';
 import { removeTags } from 'src/utils/removeTags';
@@ -13,9 +13,11 @@ export const BlogCard: FC<Props> = (props) => {
   return (
     <Paper>
       <AnchorSelf href={`/blog/${props.data.id}`}>
-        <Text size='lg' weight={700}>
-          {props.data.title}
-        </Text>
+        <Tooltip label='詳細ページに飛ぶよ'>
+          <Text size='lg' weight={700}>
+            {props.data.title}
+          </Text>
+        </Tooltip>
       </AnchorSelf>
       <TypographyStylesProvider>
         <Text size='sm' weight={500} lineClamp={2}>
