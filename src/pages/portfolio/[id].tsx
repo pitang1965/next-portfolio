@@ -10,6 +10,7 @@ import {
   Space,
   Text,
   Title,
+  Tooltip,
   TypographyStylesProvider,
 } from '@mantine/core';
 import { formatDate } from 'src/utils/formatDate';
@@ -50,15 +51,17 @@ const PortfolioDetailPage: NextPage<Props> = ({ data }) => {
             'YYYY.MM'
           )}`}
         </Text>
-        <a href={data.siteUrl}>
-          <Image
-            src={data.imageUrl.url}
-            alt={data.title}
-            layout='responsive'
-            width={data.imageUrl.width}
-            height={data.imageUrl.height}
-          />
-        </a>
+        <Tooltip label='サイトに飛ぶよ'>
+          <a href={data.siteUrl}>
+            <Image
+              src={data.imageUrl.url}
+              alt={data.title}
+              layout='responsive'
+              width={data.imageUrl.width}
+              height={data.imageUrl.height}
+            />
+          </a>
+        </Tooltip>
         <TypographyStylesProvider>
           <Text size='sm' weight={500}>
             <div dangerouslySetInnerHTML={{ __html: data.description }} />
