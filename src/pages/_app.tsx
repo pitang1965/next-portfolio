@@ -6,6 +6,7 @@ import {
   MantineProvider,
 } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
+import { NotificationsProvider } from '@mantine/notifications';
 
 function MyGlobalStyles() {
   return (
@@ -51,9 +52,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         withNormalizeCSS
         theme={{ colorScheme: colorScheme }}
       >
-        <MyGlobalStyles />
-
-        <Component {...pageProps} />
+        <NotificationsProvider>
+          <MyGlobalStyles />
+          <Component {...pageProps} />
+        </NotificationsProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   );

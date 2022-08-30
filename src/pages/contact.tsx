@@ -13,6 +13,8 @@ import {
   Title,
 } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { showNotification } from '@mantine/notifications';
+import { IconCheck } from '@tabler/icons';
 
 export type ContactFormInput = {
   email: string;
@@ -45,6 +47,11 @@ const ContactPage: NextPage = () => {
         body: JSON.stringify(values),
       });
       form.reset();
+      showNotification({
+        title: 'お問合せありがとうございます',
+        message: '24時間以内に確認いたします。',
+        icon: <IconCheck size={16} />,
+      });
     } catch (error) {
       console.error('Fetch error: ', error);
       alert(JSON.stringify(error));

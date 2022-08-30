@@ -15,6 +15,7 @@
     "@mantine/form": "5.2.4",
     "@mantine/hooks": "5.2.4",
     "@mantine/next": "5.2.4",
+    "@mantine/notifications": "^5.2.4",
     "@tabler/icons": "1.91.0",
     "classnames": "2.3.1",
     "eslint-plugin-unused-imports": "2.0.0",
