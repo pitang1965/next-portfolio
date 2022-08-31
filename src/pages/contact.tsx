@@ -13,7 +13,7 @@ import {
   Title,
 } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { showNotification } from '@mantine/notifications';
+import { showNotification, hideNotification } from '@mantine/notifications';
 import { IconCheck } from '@tabler/icons';
 
 export type ContactFormInput = {
@@ -37,6 +37,14 @@ const ContactPage: NextPage = () => {
 
   const handleSubmit = async (values: typeof form.values) => {
     try {
+      showNotification({
+        id: 'sending',
+        title: 'お問合せ',
+        message: '送信しています...',
+        icon: <IconCheck size={16} />,
+        loading: true,
+      });
+
       // microCMSに送信
       await fetch('/api/contact', {
         method: 'POST',
@@ -47,6 +55,7 @@ const ContactPage: NextPage = () => {
         body: JSON.stringify(values),
       });
       form.reset();
+      hideNotification('sending');
       showNotification({
         title: 'お問合せありがとうございます',
         message: '24時間以内に確認いたします。',
