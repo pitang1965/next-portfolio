@@ -6,9 +6,6 @@ const convToTwoDigitString = (value: number): string =>
 
 export const formatDate = (dateString: string, format: DateFormat) => {
   const date = new Date(dateString);
-
-  const convToTwoDigitString = (value: number): string =>
-    10 < value ? String(value) : '0' + String(value);
   return format === 'YYYY.MM.DD'
     ? `${date.getFullYear()}.${convToTwoDigitString(
         date.getMonth() + 1
