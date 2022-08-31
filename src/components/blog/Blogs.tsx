@@ -23,7 +23,7 @@ export const Blogs: FC<Props> = ({ blogs, isHomePage }) => {
   const numberToShow = isHomePage ? (isMobileUi ? 4 : 5) : isMobileUi ? 5 : 10;
 
   return (
-    <Container sx={{ width: '100%' }}>
+    <Container sx={{ width: '100%', paddingLeft: '0', paddingRight: '0' }}>
       <Stack spacing='xl'>
         {blogs?.slice(0, numberToShow).map((blog) => (
           <BlogCard data={blog} key={blog.id} />

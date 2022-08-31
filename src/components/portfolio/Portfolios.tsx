@@ -37,6 +37,8 @@ export const Portfolios: FC<Props> = ({ portfolios, isHomePage }) => {
         gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
         width: '100%',
         gap: '24px',
+        paddingLeft: '0',
+        paddingRight: '0',
       }}
     >
       {portfolios?.slice(0, numbersToShow).map((portfolio) => (
