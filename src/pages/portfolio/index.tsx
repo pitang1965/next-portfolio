@@ -4,12 +4,12 @@ import { Layout } from 'src/components/layout/Layout';
 import { Container, Divider, Space, Title } from '@mantine/core';
 import {
   Portfolios,
-  PortfolioDataType,
+  PortfolioSchema,
 } from 'src/components/portfolio/Portfolios';
 import { client } from 'src/pages/api/client';
 
 type Props = {
-  data: PortfolioDataType[];
+  data: PortfolioSchema[];
 };
 
 const PortfolioPage: NextPage<Props> = ({ data }) => {
@@ -21,7 +21,7 @@ const PortfolioPage: NextPage<Props> = ({ data }) => {
           Portfolio
         </Title>
         <Divider mt='sm' />
-        <Portfolios portfolioData={data} isHomePage={false} />
+        <Portfolios portfolios={data} isHomePage={false} />
       </Container>
     </Layout>
   );

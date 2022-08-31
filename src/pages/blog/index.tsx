@@ -1,17 +1,12 @@
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { Layout } from 'src/components/layout/Layout';
-import {
-  Container,
-  Divider,
-  Space,
-  Title,
-} from '@mantine/core';
-import { Blogs, BlogDataType } from 'src/components/blog/Blogs';
+import { Container, Divider, Space, Title } from '@mantine/core';
+import { Blogs, BlogSchema } from 'src/components/blog/Blogs';
 import { client } from 'src/pages/api/client';
 
 type Props = {
-  data: BlogDataType[];
+  data: BlogSchema[];
 };
 
 const BlogPage: NextPage<Props> = ({ data }) => {
@@ -23,7 +18,7 @@ const BlogPage: NextPage<Props> = ({ data }) => {
           Blog
         </Title>
         <Divider mt='sm' />
-        <Blogs blogData={data} isHomePage={false} />
+        <Blogs blogs={data} isHomePage={false} />
         {/* <Center>
           <Loader color='red' />
         </Center> */}
@@ -34,8 +29,10 @@ const BlogPage: NextPage<Props> = ({ data }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const res = await client.get({ endpoint: 'blog',
-    queries: { limit: 10000 }, });
+    const res = await client.get({
+      endpoint: 'blog',
+      queries: { limit: 10000 },
+    });
 
     return {
       props: {

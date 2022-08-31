@@ -14,11 +14,11 @@ import {
   TypographyStylesProvider,
 } from '@mantine/core';
 import { formatDate } from 'src/utils/formatDate';
-import { PortfolioDataType } from 'src/components/portfolio/Portfolios';
+import { PortfolioSchema } from 'src/components/portfolio/Portfolios';
 import { client } from 'src/pages/api/client';
 
 type Props = {
-  data: PortfolioDataType;
+  data: PortfolioSchema;
 };
 
 const PortfolioDetailPage: NextPage<Props> = ({ data }) => {
@@ -82,7 +82,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     queries: { limit: 5 },
   });
   const paths = res.contents.map(
-    (portfolio: PortfolioDataType) => `/portfolio/${portfolio.id}`
+    (portfolio: PortfolioSchema) => `/portfolio/${portfolio.id}`
   );
 
   return { paths, fallback: true };

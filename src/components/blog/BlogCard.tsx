@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { Paper, Text, Tooltip, TypographyStylesProvider } from '@mantine/core';
 import { AnchorSelf } from 'src/components/common/AnchorSelf';
-import { BlogDataType } from 'src/components/blog/Blogs';
+import { BlogSchema } from 'src/components/blog/Blogs';
 import { removeTags } from 'src/utils/removeTags';
 import { formatDate } from 'src/utils/formatDate';
 
 type Props = {
-  data: BlogDataType;
+  data: BlogSchema;
 };
 
 export const BlogCard: FC<Props> = (props) => {

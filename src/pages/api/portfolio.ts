@@ -1,11 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { client } from './client';
-import { PortfolioDataType } from 'src/components/portfolio/Portfolios';
+import { PortfolioSchema } from 'src/components/portfolio/Portfolios';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Array<PortfolioDataType>>
+  res: NextApiResponse<Array<PortfolioSchema>>
 ) {
   try {
     const data = await client.get({

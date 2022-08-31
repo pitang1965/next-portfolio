@@ -5,7 +5,7 @@ import { PortfolioCard } from './PortfolioCard';
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
 
-export type PortfolioDataType = {
+export type PortfolioSchema = {
   id: string;
   title: string;
   description: string;
@@ -21,11 +21,11 @@ export type PortfolioDataType = {
 };
 
 type Props = {
-  portfolioData: PortfolioDataType[];
+  portfolios: PortfolioSchema[];
   isHomePage: boolean;
 };
 
-export const Portfolios: FC<Props> = ({ portfolioData, isHomePage }) => {
+export const Portfolios: FC<Props> = ({ portfolios, isHomePage }) => {
   // ポートフォリをいくつ表示するかどうか（モバイル表示かどうか、ホームページかどうかで異なる）
   const [isMobileUi] = useAtom(isMobileUiAtom);
   const numbersToShow = isHomePage ? (isMobileUi ? 3 : 6) : isMobileUi ? 4 : 9;
@@ -39,7 +39,7 @@ export const Portfolios: FC<Props> = ({ portfolioData, isHomePage }) => {
         gap: '24px',
       }}
     >
-      {portfolioData?.slice(0, numbersToShow).map((portfolio) => (
+      {portfolios?.slice(0, numbersToShow).map((portfolio) => (
         <PortfolioCard key={portfolio.id} data={portfolio} />
       ))}
     </Container>

@@ -3,11 +3,11 @@ import styles from './TwitterCard.module.css';
 import { Avatar, Card, Group, Stack, Text } from '@mantine/core';
 
 type Props = {
-  data: Data;
+  data: Schema;
   index: number;
 };
 
-type Data = {
+type Schema = {
   userImage: string;
   userName: string;
   userScreenName: string;

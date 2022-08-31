@@ -2,17 +2,17 @@ import React, { FC } from 'react';
 import { ColorSwatch, Group, Stack, Text } from '@mantine/core';
 import { StuckedBarChart } from '../common/StuckedBarChart';
 
-export type LanguageDataType = {
+export type LanguageStaticsType = {
   name: string;
   color: string;
   percentage: number;
 };
 
 type Props = {
-  languages: LanguageDataType[];
+  languages: LanguageStaticsType[];
 };
 
-export const LanguageInfo: FC<Props> = (props) => {
+export const LanguageStatics: FC<Props> = (props) => {
   return (
     <Stack>
       <StuckedBarChart languages={props.languages} />

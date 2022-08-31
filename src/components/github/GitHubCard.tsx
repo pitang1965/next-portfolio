@@ -2,21 +2,21 @@ import React, { FC } from 'react';
 import { Card, Group, Stack, Text } from '@mantine/core';
 import { StarIcon } from '../icons/StarIcon';
 import { GitForkIcon } from '../icons/GitForkIcon';
-import type { LanguageDataType } from './LanguageInfo';
-import { LanguageInfo } from './LanguageInfo';
+import type { LanguageStaticsType } from './LanguageStatics';
+import { LanguageStatics } from './LanguageStatics';
 
 type Props = {
-  data: Data;
+  data: Schema;
 };
 
-type Data = {
+type Schema = {
   id: string;
   url: string;
   name: string;
   description: string;
   stars: number;
   forks: number;
-  languages: LanguageDataType[];
+  languages: LanguageStaticsType[];
 };
 
 export const GitHubCard: FC<Props> = (props) => {
@@ -41,7 +41,7 @@ export const GitHubCard: FC<Props> = (props) => {
             {props.data.forks}
           </Text>
         </Group>
-        <LanguageInfo languages={props.data.languages} />
+        <LanguageStatics languages={props.data.languages} />
       </Stack>
     </Card>
   );

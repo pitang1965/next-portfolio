@@ -12,11 +12,11 @@ import {
   TypographyStylesProvider,
 } from '@mantine/core';
 import { formatDate } from 'src/utils/formatDate';
-import { BlogDataType } from 'src/components/blog/Blogs';
+import { BlogSchema } from 'src/components/blog/Blogs';
 import { client } from 'src/pages/api/client';
 
 type Props = {
-  data: BlogDataType;
+  data: BlogSchema;
 };
 
 const BlogDetailPage: NextPage<Props> = ({ data }) => {
@@ -62,7 +62,7 @@ const BlogDetailPage: NextPage<Props> = ({ data }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await client.get({ endpoint: 'blog', queries: { limit: 5 } });
-  const paths = res.contents.map((blog: BlogDataType) => `/blog/${blog.id}`);
+  const paths = res.contents.map((blog: BlogSchema) => `/blog/${blog.id}`);
 
   return { paths, fallback: true };
 };

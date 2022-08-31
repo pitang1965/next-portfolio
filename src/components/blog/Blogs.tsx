@@ -5,7 +5,7 @@ import { BlogCard } from './BlogCard';
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
 
-export type BlogDataType = {
+export type BlogSchema = {
   id: string;
   title: string;
   content: string;
@@ -13,11 +13,11 @@ export type BlogDataType = {
 };
 
 type Props = {
-  blogData: BlogDataType[];
+  blogs: BlogSchema[];
   isHomePage: boolean;
 };
 
-export const Blogs: FC<Props> = ({ blogData, isHomePage }) => {
+export const Blogs: FC<Props> = ({ blogs, isHomePage }) => {
   // ブログをいくつ表示するかどうか（モバイル表示かどうか、ホームページかどうかで異なる）
   const [isMobileUi] = useAtom(isMobileUiAtom);
   const numberToShow = isHomePage ? (isMobileUi ? 4 : 5) : isMobileUi ? 5 : 10;
@@ -25,7 +25,7 @@ export const Blogs: FC<Props> = ({ blogData, isHomePage }) => {
   return (
     <Container sx={{ width: '100%' }}>
       <Stack spacing='xl'>
-        {blogData?.slice(0, numberToShow).map((blog) => (
+        {blogs?.slice(0, numberToShow).map((blog) => (
           <BlogCard data={blog} key={blog.id} />
         ))}
       </Stack>

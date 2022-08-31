@@ -3,12 +3,12 @@ import React, { FC } from 'react';
 import Image from 'next/image';
 import { Paper, Text, Tooltip } from '@mantine/core';
 import { AnchorSelf } from 'src/components/common/AnchorSelf';
-import { PortfolioDataType } from './Portfolios';
+import { PortfolioSchema } from './Portfolios';
 import { removeTags } from 'src/utils/removeTags';
 import { formatDate } from 'src/utils/formatDate';
 
 type Props = {
-  data: PortfolioDataType;
+  data: PortfolioSchema;
 };
 
 export const PortfolioCard: FC<Props> = (props) => {

@@ -1,16 +1,16 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import { Center, Container, Divider, Stack, Title } from '@mantine/core';
 import { Portfolios } from './Portfolios';
 import { LinkButton } from 'src/components/common/LinkButton';
 import { AnchorSelf } from 'src/components/common/AnchorSelf';
 
-import { PortfolioDataType } from './Portfolios';
+import { PortfolioSchema } from './Portfolios';
 
 type Props = {
-  portfolioData: PortfolioDataType[];
+  portfolios: PortfolioSchema[];
 };
 
-export const PortfolioSection: FC<Props> = ({ portfolioData }) => {
+export const PortfolioSection: FC<Props> = ({ portfolios }) => {
   return (
     <Container sx={{ width: '100%' }}>
       <Stack>
@@ -18,7 +18,7 @@ export const PortfolioSection: FC<Props> = ({ portfolioData }) => {
           Portfolio
         </Title>
         <Divider mt='sm' />
-        <Portfolios isHomePage portfolioData={portfolioData} />
+        <Portfolios isHomePage portfolios={portfolios} />
         <Center>
           <AnchorSelf href='/portfolio'>
             <LinkButton>View All</LinkButton>

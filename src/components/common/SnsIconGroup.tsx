@@ -3,7 +3,7 @@ import { ActionIcon, Group, Tooltip } from '@mantine/core';
 import { TwitterIcon } from '../icons/TwitterIcon';
 import { FacebookIcon } from '../icons/FacebookIcon';
 import { RssIcon } from '../icons/RssIcon';
-import { twitterUrl } from 'data/urlData';
+import { twitterUrl } from 'data/urls';
 
 export const SnsIconGroup = () => {
   return (

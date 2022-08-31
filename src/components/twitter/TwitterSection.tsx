@@ -2,7 +2,7 @@ import React from 'react';
 import { Center, Container, Divider, Stack, Title } from '@mantine/core';
 import { Tweets } from './Tweets';
 import { LinkButton } from 'src/components/common/LinkButton';
-import { twitterUrl } from 'data/urlData';
+import { twitterUrl } from 'data/urls';
 
 export const TwitterSection = () => {
   return (

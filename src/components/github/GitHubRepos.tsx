@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Stack } from '@mantine/core';
-import { githubData } from 'data/githubData';
+import { githubRepos } from 'data/githubs';
 import { GitHubCard } from './GitHubCard';
 
 import { useAtom } from 'jotai';
@@ -13,7 +13,7 @@ export const GitHubRepos = () => {
   return (
     <Container fluid>
       <Stack spacing='xl'>
-        {githubData?.slice(0, numbersToShow).map((repo) => (
+        {githubRepos?.slice(0, numbersToShow).map((repo) => (
           <GitHubCard data={repo} key={repo.id} />
         ))}
       </Stack>

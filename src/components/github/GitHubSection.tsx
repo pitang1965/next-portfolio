@@ -2,7 +2,7 @@ import React from 'react';
 import { Center, Container, Divider, Stack, Title } from '@mantine/core';
 import { LinkButton } from 'src/components/common/LinkButton';
 import { GitHubRepos } from './GitHubRepos';
-import { githubUrl } from 'data/urlData';
+import { githubUrl } from 'data/urls';
 
 export const GitHubSection = () => {
   return (

@@ -9,16 +9,16 @@ import { GitHubSection } from 'src/components/github/GitHubSection';
 import { TwitterSection } from 'src/components/twitter/TwitterSection';
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
-import { BlogDataType } from 'src/components/blog/Blogs';
-import { PortfolioDataType } from 'src/components/portfolio/Portfolios';
+import { BlogSchema } from 'src/components/blog/Blogs';
+import { PortfolioSchema } from 'src/components/portfolio/Portfolios';
 import { client } from 'src/pages/api/client';
 
 type Props = {
-  blogData: BlogDataType[];
-  portfolioData: PortfolioDataType[];
+  blogs: BlogSchema[];
+  portfolios: PortfolioSchema[];
 };
 
-const HomePage: NextPage<Props> = ({ blogData, portfolioData }) => {
+const HomePage: NextPage<Props> = ({ blogs, portfolios }) => {
   const [isMobileUi] = useAtom(isMobileUiAtom);
   const gridSpan = isMobileUi ? 12 : 6;
 
@@ -27,8 +27,8 @@ const HomePage: NextPage<Props> = ({ blogData, portfolioData }) => {
       <Container>
         <Stack spacing='lg'>
           <TitleSection name='ピータン' />
-          <BlogSection blogData={blogData} />
-          <PortfolioSection portfolioData={portfolioData} />
+          <BlogSection blogs={blogs} />
+          <PortfolioSection portfolios={portfolios} />
           <Grid>
             <Grid.Col span={gridSpan}>
               <GitHubSection />
@@ -56,8 +56,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
     return {
       props: {
-        blogData: res_blog.contents,
-        portfolioData: res_portfolio.contents,
+        blogs: res_blog.contents,
+        portfolios: res_portfolio.contents,
       },
     };
   } catch (err) {

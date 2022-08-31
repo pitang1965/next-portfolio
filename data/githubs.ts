@@ -1,4 +1,4 @@
-export const githubData = [
+export const githubRepos = [
   {
     id: '1',
     url: 'https://github.com/pitang1965/tate-tweet',
