@@ -14,7 +14,7 @@ type Props = {
   content: string;
 };
 
-export const Layout: FC<Props> = (prpps) => {
+export const Layout: FC<Props> = (props) => {
   const [opened, setOpened] = useState<boolean>(false);
   const [isMobileUi, setIsMobileUi] = useAtom(isMobileUiAtom);
   const { ref, width } = useElementSize();
@@ -41,10 +41,10 @@ export const Layout: FC<Props> = (prpps) => {
     >
       <Head>
         <title>Next Portfolio</title>
-        <meta name='description' content={prpps.content} />
+        <meta name='description' content={props.content} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      {prpps.children}
+      {props.children}
     </AppShell>
   );
 };
