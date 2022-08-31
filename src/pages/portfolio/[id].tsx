@@ -27,7 +27,7 @@ const PortfolioDetailPage: NextPage<Props> = ({ data }) => {
 
   if (typeof id !== 'string' || data === undefined) {
     return (
-      <Layout content='Blog'>
+      <Layout content='Portfolio'>
         <Container>
           <Center>
             <Text>データが取得できませんでした。</Text>
