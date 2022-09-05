@@ -75,7 +75,7 @@ const ContactPage: NextPage = () => {
           Contact
         </Title>
         <Divider mt='sm' />
-        <Box sx={{ maxWidth: 300 }} mx='auto'>
+        <Box mx='auto'>
           <form onSubmit={form.onSubmit(handleSubmit)}>
             <Space h='md' />
 
