@@ -16,6 +16,7 @@ import {
 import { formatDate } from 'src/utils/formatDate';
 import { PortfolioSchema } from 'src/components/portfolio/Portfolios';
 import { client } from 'src/pages/api/client';
+import { NUMBER_OF_PRE_REDNDERED_PORTFOLIOS } from 'src/libs/constants';
 
 type Props = {
   data: PortfolioSchema;
@@ -79,13 +80,13 @@ const PortfolioDetailPage: NextPage<Props> = ({ data }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await client.get({
     endpoint: 'portfolio',
-    queries: { limit: 5 },
+    queries: { limit: NUMBER_OF_PRE_REDNDERED_PORTFOLIOS },
   });
   const paths = res.contents.map(
     (portfolio: PortfolioSchema) => `/portfolio/${portfolio.id}`
   );
 
-  return { paths, fallback: true };
+  return { paths, fallback: 'blocking' };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {

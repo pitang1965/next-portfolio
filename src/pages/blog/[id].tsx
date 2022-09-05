@@ -14,7 +14,7 @@ import {
 import { formatDate } from 'src/utils/formatDate';
 import { BlogSchema } from 'src/components/blog/Blogs';
 import { client } from 'src/pages/api/client';
-
+import { MAX_NUMBER_OF_BLOGS } from 'src/libs/constants';
 type Props = {
   data: BlogSchema;
 };
@@ -61,10 +61,13 @@ const BlogDetailPage: NextPage<Props> = ({ data }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await client.get({ endpoint: 'blog', queries: { limit: 5 } });
+  const res = await client.get({
+    endpoint: 'blog',
+    queries: { limit: MAX_NUMBER_OF_BLOGS },
+  });
   const paths = res.contents.map((blog: BlogSchema) => `/blog/${blog.id}`);
 
-  return { paths, fallback: true };
+  return { paths, fallback: 'blocking' };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {

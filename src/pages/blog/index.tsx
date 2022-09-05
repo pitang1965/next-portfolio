@@ -1,15 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GetStaticProps, NextPage } from 'next';
 import { Layout } from 'src/components/layout/Layout';
-import { Container, Divider, Space, Title } from '@mantine/core';
+import {
+  Center,
+  Container,
+  Divider,
+  Loader,
+  Space,
+  Text,
+  Title,
+} from '@mantine/core';
 import { Blogs, BlogSchema } from 'src/components/blog/Blogs';
 import { client } from 'src/pages/api/client';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { MAX_NUMBER_OF_BLOGS } from 'src/libs/constants';
 
 type Props = {
-  data: BlogSchema[];
+  initialData: BlogSchema[];
 };
 
-const BlogPage: NextPage<Props> = ({ data }) => {
+const BlogPage: NextPage<Props> = ({ initialData }) => {
+  const [data, setData] = useState(initialData);
+  const [hasMore, setHasMore] = useState(true);
+
+  const fetchMoreData = async () => {
+    const origin = process.env.BASE_URL ?? 'http://localhost:3000';
+    const res = await fetch(`${origin}/api/blog`);
+    const additionalData: Array<BlogSchema> = await res.json();
+
+    if (MAX_NUMBER_OF_BLOGS <= data.length) {
+      setHasMore(false);
+    } else {
+      setData((prevData) => prevData.concat(additionalData));
+    }
+  };
+
   return (
     <Layout content='Blog'>
       <Container>
@@ -18,10 +43,26 @@ const BlogPage: NextPage<Props> = ({ data }) => {
           Blog
         </Title>
         <Divider mt='sm' />
-        <Blogs blogs={data} isHomePage={false} />
-        {/* <Center>
-          <Loader color='red' />
-        </Center> */}
+        <InfiniteScroll
+          dataLength={data.length}
+          next={fetchMoreData}
+          hasMore={hasMore}
+          loader={
+            <Center>
+              <Loader color='red' />
+            </Center>
+          }
+          endMessage={
+            <Center>
+              <Text
+                weight={700}
+                color='blue'
+              >{`${MAX_NUMBER_OF_BLOGS}件を全て表示しました。`}</Text>
+            </Center>
+          }
+        >
+          <Blogs blogs={data} isHomePage={false} />
+        </InfiniteScroll>
       </Container>
     </Layout>
   );
@@ -31,12 +72,12 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const res = await client.get({
       endpoint: 'blog',
-      queries: { limit: 10000 },
+      queries: { limit: MAX_NUMBER_OF_BLOGS },
     });
 
     return {
       props: {
-        data: res.contents,
+        initialData: res.contents,
       },
     };
   } catch (err) {

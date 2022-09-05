@@ -7,6 +7,7 @@ import {
   PortfolioSchema,
 } from 'src/components/portfolio/Portfolios';
 import { client } from 'src/pages/api/client';
+import { MAX_NUMBER_OF_PORTFOLIOS } from 'src/libs/constants';
 
 type Props = {
   data: PortfolioSchema[];
@@ -31,7 +32,7 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const res = await client.get({
       endpoint: 'portfolio',
-      queries: { limit: 10000 },
+      queries: { limit: MAX_NUMBER_OF_PORTFOLIOS },
     });
 
     return {

@@ -20,7 +20,7 @@ type Props = {
 export const Blogs: FC<Props> = ({ blogs, isHomePage }) => {
   // ブログをいくつ表示するかどうか（モバイル表示かどうか、ホームページかどうかで異なる）
   const [isMobileUi] = useAtom(isMobileUiAtom);
-  const numberToShow = isHomePage ? (isMobileUi ? 4 : 5) : isMobileUi ? 5 : 10;
+  const numberToShow = isHomePage ? (isMobileUi ? 4 : 5) : 1000;
 
   return (
     <Container sx={{ width: '100%', paddingLeft: '0', paddingRight: '0' }}>

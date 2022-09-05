@@ -2,6 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { client } from './client';
 import { BlogSchema } from 'src/components/blog/Blogs';
+import { MAX_NUMBER_OF_BLOGS } from 'src/libs/constants';
 
 export default async function handler(
   req: NextApiRequest,
@@ -10,7 +11,7 @@ export default async function handler(
   try {
     const data = await client.get({
       endpoint: 'blog',
-      queries: { limit: 10000 },
+      queries: { offset: 5-1, limit: MAX_NUMBER_OF_BLOGS },
     });
     res.status(200).json(data.contents);
   } catch (err) {

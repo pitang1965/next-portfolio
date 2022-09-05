@@ -12,6 +12,10 @@ import { isMobileUiAtom } from 'src/atoms/uiMode';
 import { BlogSchema } from 'src/components/blog/Blogs';
 import { PortfolioSchema } from 'src/components/portfolio/Portfolios';
 import { client } from 'src/pages/api/client';
+import {
+  NUMBER_OF_PRE_REDNDERED_BLOGS,
+  NUMBER_OF_PRE_REDNDERED_PORTFOLIOS,
+} from 'src/libs/constants';
 
 type Props = {
   blogs: BlogSchema[];
@@ -47,11 +51,11 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const res_blog = await client.get({
       endpoint: 'blog',
-      queries: { limit: 10 },
+      queries: { limit: NUMBER_OF_PRE_REDNDERED_BLOGS },
     });
     const res_portfolio = await client.get({
       endpoint: 'portfolio',
-      queries: { limit: 10 },
+      queries: { limit: NUMBER_OF_PRE_REDNDERED_PORTFOLIOS },
     });
 
     return {
