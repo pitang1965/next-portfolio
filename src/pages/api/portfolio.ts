@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { client } from './client';
 import { PortfolioSchema } from 'src/components/portfolio/Portfolios';
-import { MAX_NUMBER_OF_BLOGS } from 'src/libs/constants';
+import { MAX_NUMBER_OF_PORTFOLIOS } from 'src/libs/constants';
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,7 +11,7 @@ export default async function handler(
   try {
     const data = await client.get({
       endpoint: 'portfolio',
-      queries: { limit: MAX_NUMBER_OF_BLOGS },
+      queries: { limit: MAX_NUMBER_OF_PORTFOLIOS },
     });
     res.status(200).json(data.contents);
   } catch (err) {

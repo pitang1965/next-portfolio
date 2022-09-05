@@ -13,7 +13,10 @@ import {
 import { Blogs, BlogSchema } from 'src/components/blog/Blogs';
 import { client } from 'src/pages/api/client';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { MAX_NUMBER_OF_BLOGS } from 'src/libs/constants';
+import {
+  MAX_NUMBER_OF_BLOGS,
+  NUMBER_OF_PRE_REDNDERED_BLOGS,
+} from 'src/libs/constants';
 
 type Props = {
   initialData: BlogSchema[];
@@ -72,7 +75,7 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const res = await client.get({
       endpoint: 'blog',
-      queries: { limit: MAX_NUMBER_OF_BLOGS },
+      queries: { limit: NUMBER_OF_PRE_REDNDERED_BLOGS },
     });
 
     return {
