@@ -3,16 +3,17 @@ import styles from './TwitterCard.module.css';
 import { Avatar, Card, Group, Stack, Text } from '@mantine/core';
 
 type Props = {
-  data: Schema;
-  index: number;
-};
-
-type Schema = {
   userImage: string;
   userName: string;
   userScreenName: string;
-  date: string;
-  tweet: string;
+  data: TweetDataSchema;
+};
+
+export type TweetDataSchema = {
+  author_id: string;
+  created_at: string;
+  text: string;
+  id: string;
 };
 
 export const TwitterCard: FC<Props> = (props) => {
@@ -21,21 +22,21 @@ export const TwitterCard: FC<Props> = (props) => {
       <Group noWrap align='flex-start'>
         <Avatar
           radius='xl'
-          src={props.data.userImage}
-          alt={props.data.userScreenName}
+          src={props.userImage}
+          alt={props.userScreenName}
         />
         <Stack>
           <div className={styles.header}>
             <Text size='sm' weight={700}>
-              {props.data.userScreenName}
+              {props.userScreenName}
             </Text>
             <Text
               size='xs'
               color='dimmed'
-            >{`${props.data.userName}・${props.data.date}`}</Text>
+            >{`@${props.userName}・${props.data.created_at}`}</Text>
           </div>
           <Text size='sm' weight={500}>
-            {props.data.tweet}
+            {props.data.text}
           </Text>
         </Stack>
       </Group>

@@ -22,7 +22,6 @@ export default async function getTweet(
       //The maximum number of results
       max_results: 10,
     });
-    console.log(recentSearch);
 
     res.status(200).json(recentSearch);
   } catch (err) {
