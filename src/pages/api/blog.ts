@@ -9,7 +9,6 @@ export default async function handler(
   res: NextApiResponse<Array<BlogSchema>>
 ) {
   try {
-    console.log('ofset: ', Number(req.query.offset));
     const data = await client.get({
       endpoint: 'blog',
       queries: {

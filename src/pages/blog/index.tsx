@@ -36,7 +36,6 @@ const BlogPage: NextPage<Props> = ({ initialData }) => {
 
     const origin = process.env.NEXT_PUBLIC_BASE_URL;
     assertIsDefined(origin);
-    console.log(origin);
     const res = await fetch(
       `${origin}/api/blog?offset=${data.length.toString()}`
     );
