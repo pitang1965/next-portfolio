@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import styles from './TwitterCard.module.css';
 import { Avatar, Card, Group, Stack, Text } from '@mantine/core';
+import { formatDate } from 'src/utils/formatDate';
 
 type Props = {
   userImage: string;
@@ -32,8 +33,10 @@ export const TwitterCard: FC<Props> = (props) => {
             <Text size='xs' color='dimmed'>
               ・
             </Text>
-            <a href={`https://twitter.com/${props.userName}/status/${props.data.id}`}>
-              <Text size='xs' color='dimmed'>{`${props.data.created_at}`}</Text>
+            <a
+              href={`https://twitter.com/${props.userName}/status/${props.data.id}`}
+            >
+              <Text size='xs' color='dimmed'>{formatDate(props.data.created_at, 'SNS')}</Text>
             </a>
           </div>
           <Text size='sm' weight={500}>
