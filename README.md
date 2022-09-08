@@ -11,8 +11,9 @@
 * TypeScript
 
 ## 環境変数
-* BASE_URL: http://localhost:3000 or https://***.vercel.app
+* NEXT_PUBLIC_BASE_URL: http://localhost:3000 or https://***.vercel.app
 * MICROCMS_API_KEY
+* TWITTER_BEARER_TOKEN
 
 ## 詳細
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
