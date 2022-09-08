@@ -18,18 +18,21 @@ import {
   NUMBER_OF_PRE_REDNDERED_BLOGS,
 } from 'src/libs/constants';
 import { assertIsDefined } from 'src/utils/assert';
+import useSWR from 'swr';
 
 type Props = {
   initialData: BlogSchema[];
 };
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 const BlogPage: NextPage<Props> = ({ initialData }) => {
   const [data, setData] = useState(initialData);
   const [hasMore, setHasMore] = useState(true);
-
-  const totalCount = () => {
-    return 11;
-  };
+  const { data: blogTotalCount, error: countError } = useSWR(
+    '/api/blog-total-count',
+    fetcher
+  );
 
   const fetchMoreData = async () => {
     if (!hasMore) return;
@@ -41,12 +44,30 @@ const BlogPage: NextPage<Props> = ({ initialData }) => {
     );
     const additionalData: Array<BlogSchema> = await res.json();
 
-    if (MAX_NUMBER_OF_BLOGS <= data.length || totalCount() <= data.length) {
+    if (MAX_NUMBER_OF_BLOGS <= data.length || blogTotalCount <= data.length) {
       setHasMore(false);
     } else {
       setData((prevData) => prevData.concat(additionalData));
     }
   };
+
+  if (countError)
+    return (
+      <Container>
+        <Center>
+          <Text>ブログ総数の読み取り失敗。</Text>
+        </Center>
+      </Container>
+    );
+
+  if (!blogTotalCount)
+    return (
+      <Container>
+        <Center>
+          <Text>ブログ総数の読み取り中...</Text>
+        </Center>
+      </Container>
+    );
 
   return (
     <Layout content='Blog'>
@@ -69,7 +90,7 @@ const BlogPage: NextPage<Props> = ({ initialData }) => {
             <Center>
               <Text weight={700} color='blue'>{`${Math.min(
                 MAX_NUMBER_OF_BLOGS,
-                totalCount()
+                blogTotalCount
               )}件を全て表示しました。`}</Text>
             </Center>
           }
