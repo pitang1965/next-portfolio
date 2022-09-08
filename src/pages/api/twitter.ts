@@ -25,7 +25,6 @@ export default async function getTweet(
 
     res.status(200).json(recentSearch);
   } catch (err) {
-    console.log(err);
     console.error(err);
     res.statusCode = 500;
   }

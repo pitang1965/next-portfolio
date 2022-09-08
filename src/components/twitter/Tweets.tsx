@@ -32,8 +32,6 @@ export const Tweets = () => {
     );
   }
 
-  console.log(data);
-
   return (
     <Container fluid>
       <Stack spacing='xl'>

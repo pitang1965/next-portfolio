@@ -7,7 +7,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    console.log(req.body);
     await client.create({
       endpoint: 'contact',
       content: req.body,
