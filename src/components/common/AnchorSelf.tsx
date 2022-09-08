@@ -25,6 +25,27 @@ export const AnchorSelf: FC<Props> = (props) => {
     return router.asPath.startsWith(props.href);
   }
 
+  // ホームページに今いるかどうか
+  function isHomePage(): boolean {
+    return router.asPath === '/';
+  }
+
+  let borderStyle: string;
+
+  if (isthePath()) {
+    if (isHomePage()) {
+      borderStyle = 'none';
+    } else {
+      borderStyle = 'solid';
+    }
+  } else {
+    if (isLowerPath()) {
+      borderStyle = 'dotted';
+    } else {
+      borderStyle = 'none';
+    }
+  }
+
   return (
     <Link href={props.href}>
       <Anchor
@@ -34,11 +55,7 @@ export const AnchorSelf: FC<Props> = (props) => {
             props.color || theme.colorScheme === 'dark'
               ? theme.white
               : theme.black,
-          borderStyle: isthePath()
-            ? 'solid'
-            : isLowerPath()
-            ? 'dotted'
-            : 'none',
+          borderStyle: borderStyle,
           borderBottomWidth: '2px',
           '&:hover': {
             textDecoration: 'none',
