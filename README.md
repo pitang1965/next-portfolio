@@ -4,10 +4,14 @@
 ## 使用している技術、サービスおよびライブラリ
 * classnames
 * CSS Modules
+* dayjs
 * jotai
 * Mantine
 * Next.js
 * pnpm
+* @tabler/icons
+* swr
+* twitter-api-sdk
 * TypeScript
 
 ## 環境変数
