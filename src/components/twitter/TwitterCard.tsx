@@ -21,7 +21,13 @@ export const TwitterCard: FC<Props> = (props) => {
   return (
     <Card>
       <Group noWrap align='flex-start'>
-        <Avatar radius='xl' src={props.userImage} alt={props.userScreenName} />
+        <a href={`https://twitter.com/${props.userName}`}>
+          <Avatar
+            radius='xl'
+            src={props.userImage}
+            alt={props.userScreenName}
+          />
+        </a>
         <Stack>
           <div className={styles.header}>
             <Text size='sm' weight={700}>
@@ -36,7 +42,9 @@ export const TwitterCard: FC<Props> = (props) => {
             <a
               href={`https://twitter.com/${props.userName}/status/${props.data.id}`}
             >
-              <Text size='xs' color='dimmed'>{formatDate(props.data.created_at, 'SNS')}</Text>
+              <Text size='xs' color='dimmed'>
+                {formatDate(props.data.created_at, 'SNS')}
+              </Text>
             </a>
           </div>
           <Text size='sm' weight={500}>
