@@ -18,21 +18,16 @@ import {
   NUMBER_OF_PRE_REDNDERED_BLOGS,
 } from 'src/libs/constants';
 import { assertIsDefined } from 'src/utils/assert';
-import useSWR from 'swr';
+import { useBlogTotalCount } from 'src/hooks/useBlogTotalCount';
 
 type Props = {
   initialData: BlogSchema[];
 };
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
 const BlogPage: NextPage<Props> = ({ initialData }) => {
   const [data, setData] = useState(initialData);
   const [hasMore, setHasMore] = useState(true);
-  const { data: blogTotalCount, error: countError } = useSWR(
-    '/api/blog-total-count',
-    fetcher
-  );
+  const { blogTotalCount, isLoading, isError } = useBlogTotalCount();
 
   const fetchMoreData = async () => {
     if (!hasMore) return;
@@ -51,20 +46,20 @@ const BlogPage: NextPage<Props> = ({ initialData }) => {
     }
   };
 
-  if (countError)
+  if (isLoading)
+  return (
+    <Container>
+      <Center>
+        <Text>ブログ総数の読み取り中...</Text>
+      </Center>
+    </Container>
+  );
+
+  if (isError)
     return (
       <Container>
         <Center>
           <Text>ブログ総数の読み取り失敗。</Text>
-        </Center>
-      </Container>
-    );
-
-  if (!blogTotalCount)
-    return (
-      <Container>
-        <Center>
-          <Text>ブログ総数の読み取り中...</Text>
         </Center>
       </Container>
     );
