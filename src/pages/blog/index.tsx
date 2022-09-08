@@ -17,6 +17,7 @@ import {
   MAX_NUMBER_OF_BLOGS,
   NUMBER_OF_PRE_REDNDERED_BLOGS,
 } from 'src/libs/constants';
+import { assertIsDefined } from 'src/utils/assert';
 
 type Props = {
   initialData: BlogSchema[];
@@ -26,12 +27,22 @@ const BlogPage: NextPage<Props> = ({ initialData }) => {
   const [data, setData] = useState(initialData);
   const [hasMore, setHasMore] = useState(true);
 
+  const totalCount = () => {
+    return 11;
+  };
+
   const fetchMoreData = async () => {
-    const origin = process.env.BASE_URL ?? 'http://localhost:3000';
-    const res = await fetch(`${origin}/api/blog`);
+    if (!hasMore) return;
+
+    const origin = process.env.NEXT_PUBLIC_BASE_URL;
+    assertIsDefined(origin);
+    console.log(origin);
+    const res = await fetch(
+      `${origin}/api/blog?offset=${data.length.toString()}`
+    );
     const additionalData: Array<BlogSchema> = await res.json();
 
-    if (MAX_NUMBER_OF_BLOGS <= data.length) {
+    if (MAX_NUMBER_OF_BLOGS <= data.length || totalCount() <= data.length) {
       setHasMore(false);
     } else {
       setData((prevData) => prevData.concat(additionalData));
@@ -57,10 +68,10 @@ const BlogPage: NextPage<Props> = ({ initialData }) => {
           }
           endMessage={
             <Center>
-              <Text
-                weight={700}
-                color='blue'
-              >{`${MAX_NUMBER_OF_BLOGS}件を全て表示しました。`}</Text>
+              <Text weight={700} color='blue'>{`${Math.min(
+                MAX_NUMBER_OF_BLOGS,
+                totalCount()
+              )}件を全て表示しました。`}</Text>
             </Center>
           }
         >
