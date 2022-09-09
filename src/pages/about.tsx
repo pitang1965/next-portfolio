@@ -10,7 +10,7 @@ const About: NextPage = () => {
       <Container>
         <Head>
           <title>About - Next Portfolio</title>
-          <meta name='description' content='Shimabu IT University' />
+          <meta name='description' content='Pitang1965 Portfolio' />
           <link rel='icon' href='/favicon.ico' />
         </Head>
         <Space h='md' />

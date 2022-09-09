@@ -28,7 +28,7 @@ export const TitleSection: FC<Props> = (props) => {
             sx={{ fontSize: isMobileUi ? 28 : 36 }}
             className={styles.title}
           >
-            Shimabu IT University
+            Pitang1965 Portfolio
           </Text>
           <Text size='md' className={styles.subTitle}>
             {props.name}のポートフォリオのためのページです

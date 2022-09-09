@@ -47,7 +47,7 @@ export const Header: FC<Props> = (props) => {
             />
           )}
           <AnchorSelf href='/'>
-            <Text className={styles.title}>Shimabu IT University</Text>
+            <Text className={styles.title}>Pitang1965 Portfolio</Text>
           </AnchorSelf>
           <Group position='right' spacing='xs'>
             {!isMobileUi && (
