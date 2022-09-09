@@ -26,7 +26,15 @@ export const Header: FC<Props> = (props) => {
   const dark = colorScheme === 'dark';
 
   return (
-    <MantineHeader height={70} p='md'>
+    <MantineHeader
+      height={70}
+      p='md'
+      sx={(theme) => ({
+        color: theme.colorScheme === 'dark' ? theme.black : theme.white,
+        backgroundColor:
+          theme.colorScheme === 'dark' ? theme.black : theme.white,
+      })}
+    >
       <Container>
         <Group position='apart'>
           {isMobileUi && (

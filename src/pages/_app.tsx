@@ -19,9 +19,9 @@ function MyGlobalStyles() {
         },
         'body,  a': {
           backgroundColor:
-            theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+            theme.colorScheme === 'dark' ? theme.black : theme.white,
           color:
-            theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+            theme.colorScheme === 'dark' ? theme.white: theme.black,
           textDecoration: 'none',
         },
         body: {

@@ -13,7 +13,13 @@ type Props = {
 
 export const PortfolioCard: FC<Props> = (props) => {
   return (
-    <Paper>
+    <Paper
+      p='sm'
+      sx={(theme) => ({
+        backgroundColor:
+          theme.colorScheme === 'dark' ? theme.black : theme.white,
+      })}
+    >
       <Tooltip label='サイトに飛ぶよ'>
         <a href={props.data.siteUrl}>
           <Image

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styles from './TwitterCard.module.css';
-import { Avatar, Card, Group, Stack, Text } from '@mantine/core';
+import { Avatar, Group, Paper, Stack, Text } from '@mantine/core';
 import { formatDate } from 'src/utils/formatDate';
 
 type Props = {
@@ -19,7 +19,10 @@ export type TweetDataSchema = {
 
 export const TwitterCard: FC<Props> = (props) => {
   return (
-    <Card>
+    <Paper p='sm' sx={(theme) => ({
+      backgroundColor:
+        theme.colorScheme === 'dark' ? theme.black : theme.white,
+    })}>
       <Group noWrap align='flex-start'>
         <a href={`https://twitter.com/${props.userName}`}>
           <Avatar
@@ -52,6 +55,6 @@ export const TwitterCard: FC<Props> = (props) => {
           </Text>
         </Stack>
       </Group>
-    </Card>
+    </Paper>
   );
 };

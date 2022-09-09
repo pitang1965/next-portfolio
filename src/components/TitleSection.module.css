@@ -2,14 +2,14 @@
   position: absolute;
   left: 0;
   right: 0;
-  background-color: #E64980;;
+  background-color: #571D90;;
   height: 248px;
   width: 100vw;
 }
 
 .container {
   z-index: 1;
-  background-color: #E64980;
+  background-color: #571D90;
   height: 248px;
   width: 100%;
   color: white;

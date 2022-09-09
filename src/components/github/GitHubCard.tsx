@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Card, Group, Stack, Text } from '@mantine/core';
+import { Group, Stack, Paper, Text } from '@mantine/core';
 import { StarIcon } from '../icons/StarIcon';
 import { GitForkIcon } from '../icons/GitForkIcon';
 import type { LanguageStaticsType } from './LanguageStatics';
@@ -21,7 +21,13 @@ type Schema = {
 
 export const GitHubCard: FC<Props> = (props) => {
   return (
-    <Card>
+    <Paper
+      p='sm'
+      sx={(theme) => ({
+        backgroundColor:
+          theme.colorScheme === 'dark' ? theme.black : theme.white,
+      })}
+    >
       <Stack>
         <a href={props.data.url}>
           <Text size='lg' weight={700}>
@@ -43,6 +49,6 @@ export const GitHubCard: FC<Props> = (props) => {
         </Group>
         <LanguageStatics languages={props.data.languages} />
       </Stack>
-    </Card>
+    </Paper>
   );
 };

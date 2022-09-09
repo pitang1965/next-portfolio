@@ -111,11 +111,9 @@ const ContactPage: NextPage = () => {
                 type='submit'
                 radius='xl'
                 sx={(theme) => ({
-                  color: theme.colorScheme === 'dark' ? 'black' : 'white',
+                  color: theme.colorScheme === 'dark' ? theme.black : theme.white,
                   backgroundColor:
-                    theme.colorScheme === 'dark'
-                      ? theme.colors.dark[2]
-                      : theme.colors.gray[7],
+                    theme.colorScheme === 'dark' ? theme.black : theme.white,
                 })}
               >
                 Send message

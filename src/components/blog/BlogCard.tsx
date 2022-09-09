@@ -11,7 +11,13 @@ type Props = {
 
 export const BlogCard: FC<Props> = (props) => {
   return (
-    <Paper>
+    <Paper
+      p='sm'
+      sx={(theme) => ({
+        backgroundColor:
+          theme.colorScheme === 'dark' ? theme.black : theme.white,
+      })}
+    >
       <AnchorSelf href={`/blog/${props.data.id}`}>
         <Tooltip label='詳細ページに飛ぶよ'>
           <Text size='lg' weight={700}>
