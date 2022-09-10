@@ -16,12 +16,6 @@ import { useForm } from '@mantine/form';
 import { showNotification, hideNotification } from '@mantine/notifications';
 import { IconCheck } from '@tabler/icons';
 
-export type ContactFormInput = {
-  email: string;
-  name: string;
-  message: string;
-};
-
 const ContactPage: NextPage = () => {
   const form = useForm({
     initialValues: {
