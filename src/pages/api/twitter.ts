@@ -1,13 +1,22 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Client } from 'twitter-api-sdk';
+import NextCors from 'nextjs-cors';
 
 export default async function getTweet(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   try {
+    await NextCors(req, res, {
+      methods: ['GET'],
+      origin: '*',
+      optionSuccessStatus: 200,
+    });
+
     // Pass auth credentials to the library client
-    const twitterClient = new Client(process.env.TWITTER_BEARER_TOKEN as string);
+    const twitterClient = new Client(
+      process.env.TWITTER_BEARER_TOKEN as string
+    );
 
     const recentSearch = await twitterClient.tweets.tweetsRecentSearch({
       //One query/rule/filter for matching Tweets. Refer to https://t.co/rulelength to identify the max query length
