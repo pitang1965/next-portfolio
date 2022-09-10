@@ -18,6 +18,9 @@ export const PortfolioCard: FC<Props> = (props) => {
       sx={(theme) => ({
         backgroundColor:
           theme.colorScheme === 'dark' ? theme.black : theme.white,
+        '&:hover': {
+          backgroundColor: theme.colorScheme === 'dark' ? '#222222' : '#EEEEEE',
+        },
       })}
     >
       <Tooltip label='サイトに飛ぶよ'>

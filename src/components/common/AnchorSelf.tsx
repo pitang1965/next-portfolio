@@ -59,6 +59,7 @@ export const AnchorSelf: FC<Props> = (props) => {
           borderBottomWidth: '2px',
           '&:hover': {
             textDecoration: 'none',
+            color: theme.colorScheme === 'dark' ? '#999999' : '#666666',
           },
         })}
       >

@@ -22,6 +22,9 @@ export const BlogCard: FC<Props> = (props) => {
       sx={(theme) => ({
         backgroundColor:
           theme.colorScheme === 'dark' ? theme.black : theme.white,
+        '&:hover': {
+          backgroundColor: theme.colorScheme === 'dark' ? '#222222' : '#EEEEEE',
+        },
       })}
     >
       <AnchorSelf href={`/blog/${props.data.id}`}>
