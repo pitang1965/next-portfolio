@@ -18,11 +18,16 @@ export type TweetDataSchema = {
 };
 
 export const TwitterCard: FC<Props> = (props) => {
+  const tweetUrl =`https://twitter.com/${props.userName}/status/${props.data.id}`;
+  
   return (
-    <Paper p='sm' sx={(theme) => ({
-      backgroundColor:
-        theme.colorScheme === 'dark' ? theme.black : theme.white,
-    })}>
+    <Paper
+      p='sm'
+      sx={(theme) => ({
+        backgroundColor:
+          theme.colorScheme === 'dark' ? theme.black : theme.white,
+      })}
+    >
       <Group noWrap align='flex-start'>
         <a href={`https://twitter.com/${props.userName}`}>
           <Avatar
@@ -31,7 +36,7 @@ export const TwitterCard: FC<Props> = (props) => {
             alt={props.userScreenName}
           />
         </a>
-        <Stack>
+        <Stack spacing='xs'>
           <div className={styles.header}>
             <Text size='sm' weight={700}>
               {props.userScreenName}
@@ -42,17 +47,17 @@ export const TwitterCard: FC<Props> = (props) => {
             <Text size='xs' color='dimmed'>
               ・
             </Text>
-            <a
-              href={`https://twitter.com/${props.userName}/status/${props.data.id}`}
-            >
+            <a href={tweetUrl}>
               <Text size='xs' color='dimmed'>
                 {formatDate(props.data.created_at, 'SNS')}
               </Text>
             </a>
           </div>
-          <Text size='sm' weight={500}>
-            {props.data.text}
-          </Text>
+          <a href={tweetUrl}>
+            <Text size='sm' weight={500}>
+              {props.data.text}
+            </Text>
+          </a>
         </Stack>
       </Group>
     </Paper>
