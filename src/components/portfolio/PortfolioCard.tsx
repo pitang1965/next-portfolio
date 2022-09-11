@@ -29,6 +29,8 @@ export const PortfolioCard: FC<Props> = (props) => {
             <Image
               src={props.data.imageUrl.url}
               alt={props.data.title}
+              layout='responsive'
+              objectFit='cover'
               width={358}
               height={184}
             />
