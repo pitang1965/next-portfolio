@@ -20,7 +20,7 @@ export type TweetDataSchema = {
 const useStyles = createStyles((theme, _params, _getRef) => ({
   backgroundColor: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.black : theme.white,
-    '&:hover *': {
+    '&:hover, &:hover *': {
       backgroundColor: theme.colorScheme === 'dark' ? '#222222' : '#EEEEEE',
     },
   },
