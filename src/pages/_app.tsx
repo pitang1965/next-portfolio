@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
-        theme={{ colorScheme: colorScheme }}
+        theme={{ colorScheme }}
       >
         <NotificationsProvider>
           <MyGlobalStyles />
