@@ -1,20 +1,17 @@
-
 import React from 'react';
 import { Center, Container, Stack, Text } from '@mantine/core';
 import { TwitterCard } from './TwitterCard';
-import useSWR from 'swr';
+import { useTwitter } from 'src/hooks/useTwitter';
 import { TweetDataSchema } from './TwitterCard';
 const numbersToShow = 3;
 
 const userImage =
   'https://pbs.twimg.com/profile_images/1473095887069097984/53rtMTuN_400x400.png';
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
 export const Tweets = () => {
-  const { data, error } = useSWR('/api/twitter', fetcher);
+  const { tweets, userName, userScreenName, isLoading, isError } = useTwitter();
 
-  if (error) {
+  if (isError) {
     return (
       <Container fluid>
         <Center>
@@ -23,7 +20,7 @@ export const Tweets = () => {
       </Container>
     );
   }
-  if (!data) {
+  if (isLoading) {
     return (
       <Container fluid>
         <Center>
@@ -36,11 +33,11 @@ export const Tweets = () => {
   return (
     <Container fluid>
       <Stack spacing='xl'>
-        {data.data?.slice(0, numbersToShow).map((tweet: TweetDataSchema) => (
+        {tweets?.slice(0, numbersToShow).map((tweet: TweetDataSchema) => (
           <TwitterCard
             userImage={userImage}
-            userName={data.includes.users[0].username}
-            userScreenName={data.includes.users[0].name}
+            userName={userName}
+            userScreenName={userScreenName}
             data={tweet}
             key={tweet.id}
           />
