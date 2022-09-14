@@ -6,6 +6,9 @@ export default async function getTweet(
   res: NextApiResponse
 ) {
   try {
+    // 以下は、下記URLの抜粋。
+    // https://developer.twitter.com/en/docs/twitter-api/tweets/search/api-reference/get-tweets-search-recent#tab1
+    
     // Pass auth credentials to the library client
     const twitterClient = new Client(process.env.TWITTER_BEARER_TOKEN as string);
 
@@ -18,6 +21,9 @@ export default async function getTweet(
 
       //A comma separated list of User fields to display.
       'tweet.fields': ['created_at'],
+
+      //A comma separated list of User fields to display.
+      "user.fields": ["profile_image_url"],
 
       //The maximum number of results
       max_results: 10,
