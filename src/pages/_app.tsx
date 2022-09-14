@@ -7,6 +7,7 @@ import {
 } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import { NotificationsProvider } from '@mantine/notifications';
+import { SWRConfig } from 'swr';
 
 function MyGlobalStyles() {
   return (
@@ -20,8 +21,7 @@ function MyGlobalStyles() {
         'body,  a': {
           backgroundColor:
             theme.colorScheme === 'dark' ? theme.black : theme.white,
-          color:
-            theme.colorScheme === 'dark' ? theme.white: theme.black,
+          color: theme.colorScheme === 'dark' ? theme.white : theme.black,
           textDecoration: 'none',
         },
         body: {
@@ -43,21 +43,25 @@ function MyApp({ Component, pageProps }: AppProps) {
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   return (
-    <ColorSchemeProvider
-      colorScheme={colorScheme}
-      toggleColorScheme={toggleColorSchem}
+    <SWRConfig
+      value={{ fetcher: (url: string) => fetch(url).then((res) => res.json()) }}
     >
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{ colorScheme }}
+      <ColorSchemeProvider
+        colorScheme={colorScheme}
+        toggleColorScheme={toggleColorSchem}
       >
-        <NotificationsProvider>
-          <MyGlobalStyles />
-          <Component {...pageProps} />
-        </NotificationsProvider>
-      </MantineProvider>
-    </ColorSchemeProvider>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{ colorScheme }}
+        >
+          <NotificationsProvider>
+            <MyGlobalStyles />
+            <Component {...pageProps} />
+          </NotificationsProvider>
+        </MantineProvider>
+      </ColorSchemeProvider>
+    </SWRConfig>
   );
 }
 

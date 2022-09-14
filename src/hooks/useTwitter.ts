@@ -1,9 +1,7 @@
 import useSWR from 'swr';
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
 export function useTwitter() {
-  const { data, error } = useSWR('/api/twitter', fetcher);
+  const { data, error } = useSWR('/api/twitter');
 
   return {
     tweets: data?.data,
