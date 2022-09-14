@@ -17,7 +17,7 @@
     "@mantine/next": "5.3.0",
     "@mantine/notifications": "^5.3.0",
     "@tabler/icons": "1.95.0",
-    "classnames": "2.3.1",
+    "classnames": "2.3.2",
     "dayjs": "^1.11.5",
     "eslint-plugin-unused-imports": "2.0.0",
     "jotai": "1.8.3",
