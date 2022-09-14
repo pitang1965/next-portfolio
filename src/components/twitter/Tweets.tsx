@@ -5,11 +5,15 @@ import { useTwitter } from 'src/hooks/useTwitter';
 import { TweetDataSchema } from './TwitterCard';
 const numbersToShow = 3;
 
-const userImage =
-  'https://pbs.twimg.com/profile_images/1473095887069097984/53rtMTuN_400x400.png';
-
 export const Tweets = () => {
-  const { tweets, userName, userScreenName, isLoading, isError } = useTwitter();
+  const {
+    tweets,
+    userName,
+    profileImageUrl,
+    userScreenName,
+    isLoading,
+    isError,
+  } = useTwitter();
 
   if (isError) {
     return (
@@ -35,7 +39,7 @@ export const Tweets = () => {
       <Stack spacing='xl'>
         {tweets?.slice(0, numbersToShow).map((tweet: TweetDataSchema) => (
           <TwitterCard
-            userImage={userImage}
+            profileImageUrl={profileImageUrl}
             userName={userName}
             userScreenName={userScreenName}
             data={tweet}

@@ -7,6 +7,7 @@ export function useTwitter() {
     tweets: data?.data,
     userName: data?.includes.users[0].username,
     userScreenName: data?.includes.users[0].name,
+    profileImageUrl: data?.includes.users[0].profile_image_url,
     isLoading: !error && !data,
     isError: error,
   };

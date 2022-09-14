@@ -4,7 +4,7 @@ import { Avatar, createStyles, Group, Paper, Stack, Text } from '@mantine/core';
 import { formatDate } from 'src/utils/formatDate';
 
 type Props = {
-  userImage: string;
+  profileImageUrl: string;
   userName: string;
   userScreenName: string;
   data: TweetDataSchema;
@@ -36,7 +36,7 @@ export const TwitterCard: FC<Props> = (props) => {
         <a href={`https://twitter.com/${props.userName}`}>
           <Avatar
             radius='xl'
-            src={props.userImage}
+            src={props.profileImageUrl}
             alt={props.userScreenName}
           />
         </a>
