@@ -1,5 +1,5 @@
 export const MAX_NUMBER_OF_BLOGS = 100;
-export const NUMBER_OF_PRE_REDNDERED_BLOGS = 5;
+export const NUMBER_OF_PRE_REDNDERED_BLOGS = 10;
 export const NUMBER_OF_LIMIT_FOR_BLOGS = 5;
 
 export const MAX_NUMBER_OF_PORTFOLIOS = 20;
