@@ -101,15 +101,7 @@ const ContactPage: NextPage = () => {
             <Space h='md' />
 
             <Group position='center' mt='md'>
-              <Button
-                type='submit'
-                radius='xl'
-                sx={(theme) => ({
-                  color: theme.colorScheme === 'dark' ? theme.black : theme.white,
-                  backgroundColor:
-                    theme.colorScheme === 'dark' ? theme.black : theme.white,
-                })}
-              >
+              <Button type='submit' radius='xl'>
                 Send message
               </Button>
             </Group>
