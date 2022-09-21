@@ -14,8 +14,8 @@ type Schema = {
   url: string;
   name: string;
   description: string;
-  stars: number;
-  forks: number;
+  stargazerCount: number;
+  forkCount: number;
   languages: LanguageStaticsType[];
 };
 
@@ -42,11 +42,11 @@ export const GitHubCard: FC<Props> = (props) => {
           <Group spacing='xs'>
             <StarIcon width={15} height={15} color='#909296' />
             <Text size='xs' color='dimmed'>
-              {props.data.stars}
+              {props.data.stargazerCount}
             </Text>
             <GitForkIcon width={15} height={15} color='#909296' />
             <Text size='xs' color='dimmed'>
-              {props.data.forks}
+              {props.data.forkCount}
             </Text>
           </Group>
           <LanguageStatics languages={props.data.languages} />
