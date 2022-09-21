@@ -5,12 +5,15 @@
 * classnames
 * CSS Modules
 * dayjs
+* graphql & @graphql-yoga/node
+* graphql-request
 * jotai
 * Mantine
+* icrocms-js-sdk
 * Next.js
 * pnpm
-* @tabler/icons
 * swr
+* @tabler/icons
 * twitter-api-sdk
 * TypeScript
 
