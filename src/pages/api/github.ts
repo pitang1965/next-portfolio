@@ -43,10 +43,10 @@ const resolvers = {
       });
 
       const data = await graphQLClient.request(query);
-      const object = data.user.pinnedItems.nodes.map((node) => ({
+      const object = data.user.pinnedItems.nodes.map((node:any) => ({
         name: node.name,
         description: node.description,
-        languages: node.languages.edges.map((edge) => ({
+        languages: node.languages.edges.map((edge:any) => ({
           color: edge.node.color,
           name: edge.node.name,
           percentage: Number(
