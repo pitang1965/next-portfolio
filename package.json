@@ -23,7 +23,7 @@
     "eslint-plugin-unused-imports": "2.0.0",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
-    "jotai": "1.8.3",
+    "jotai": "1.8.4",
     "microcms-js-sdk": "^2.2.1",
     "next": "12.3.0",
     "react": "18.2.0",
