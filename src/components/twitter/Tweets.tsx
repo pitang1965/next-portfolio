@@ -3,7 +3,7 @@ import { Center, Container, Stack, Text } from '@mantine/core';
 import { TwitterCard } from './TwitterCard';
 import { useTwitter } from 'src/hooks/useTwitter';
 import { TweetDataSchema } from './TwitterCard';
-const numbersToShow = 3;
+const numbersToShow = 5;
 
 export const Tweets = () => {
   const {
