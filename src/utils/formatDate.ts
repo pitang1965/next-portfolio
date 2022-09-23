@@ -9,7 +9,6 @@ export const formatDate = (dateString: string, format: DateFormat) => {
   if (format === 'SNS') {
     const now = dayjs();
     const diff = now.diff(dayjs(dateString)) / 1000;
-    console.log(diff);
     if (diff < 60) {
       return Math.floor(diff).toString() + '秒'; // ●●秒
     }

@@ -66,7 +66,6 @@ const resolvers = {
         id: node.id,
       }));
 
-      console.log(JSON.stringify(object, undefined, 2));
       return object;
     },
   },

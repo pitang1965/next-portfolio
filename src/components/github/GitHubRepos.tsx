@@ -41,13 +41,10 @@ export const GitHubRepos = () => {
     fetcher
   );
 
-  console.log(error, data);
-
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
 
   const { repositories } = data;
-  console.log('✨ ', repositories);
 
   return (
     <Container fluid>
