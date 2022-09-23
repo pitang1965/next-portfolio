@@ -5,7 +5,6 @@ import { Layout } from 'src/components/layout/Layout';
 import { Container, Grid, Stack } from '@mantine/core';
 import { TitleSection } from 'src/components/TitleSection';
 import { BlogSection } from 'src/components/blog/BlogSection';
-import { PortfolioSection } from 'src/components/portfolio/PortfolioSection';
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
 import { BlogSchema } from 'src/components/blog/Blogs';
@@ -31,6 +30,12 @@ const DynamicTwitterSection = dynamic(() =>
   )
 );
 
+const DynamicPortfolioSection = dynamic(() =>
+  import('src/components/portfolio/PortfolioSection').then(
+    (mod) => mod.PortfolioSection
+  )
+);
+
 const HomePage: NextPage<Props> = ({ blogs, portfolios }) => {
   const [isMobileUi] = useAtom(isMobileUiAtom);
   const gridSpan = isMobileUi ? 12 : 6;
@@ -41,7 +46,7 @@ const HomePage: NextPage<Props> = ({ blogs, portfolios }) => {
         <Stack spacing='lg'>
           <TitleSection name='ピータン' />
           <BlogSection blogs={blogs} />
-          <PortfolioSection portfolios={portfolios} />
+          <DynamicPortfolioSection portfolios={portfolios} />
           <Grid>
             <Grid.Col span={gridSpan}>
               <DynamicGitHubSection />
