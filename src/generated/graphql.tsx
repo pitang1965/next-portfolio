@@ -28,7 +28,7 @@ export type Repository = {
   __typename?: 'Repository';
   description?: Maybe<Scalars['String']>;
   forkCount: Scalars['Int'];
-  id: Scalars['String'];
+  id: Scalars['ID'];
   languages?: Maybe<Array<Language>>;
   name: Scalars['String'];
   stargazerCount: Scalars['Int'];

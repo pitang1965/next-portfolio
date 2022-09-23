@@ -85,7 +85,7 @@ const typeDefs = /* GraphQL */ `
     forkCount: Int!
     stargazerCount: Int!
     url: String!
-    id: String!
+    id:  ID!
   }
   type Language {
     color: String!
