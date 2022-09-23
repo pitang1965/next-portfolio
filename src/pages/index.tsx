@@ -1,12 +1,11 @@
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import { Layout } from 'src/components/layout/Layout';
 import { Container, Grid, Stack } from '@mantine/core';
 import { TitleSection } from 'src/components/TitleSection';
 import { BlogSection } from 'src/components/blog/BlogSection';
 import { PortfolioSection } from 'src/components/portfolio/PortfolioSection';
-import { GitHubSection } from 'src/components/github/GitHubSection';
-import { TwitterSection } from 'src/components/twitter/TwitterSection';
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
 import { BlogSchema } from 'src/components/blog/Blogs';
@@ -22,6 +21,16 @@ type Props = {
   portfolios: PortfolioSchema[];
 };
 
+const DynamicGitHubSection = dynamic(() =>
+  import('src/components/github/GitHubSection').then((mod) => mod.GitHubSection)
+);
+
+const DynamicTwitterSection = dynamic(() =>
+  import('src/components/twitter/TwitterSection').then(
+    (mod) => mod.TwitterSection
+  )
+);
+
 const HomePage: NextPage<Props> = ({ blogs, portfolios }) => {
   const [isMobileUi] = useAtom(isMobileUiAtom);
   const gridSpan = isMobileUi ? 12 : 6;
@@ -35,10 +44,10 @@ const HomePage: NextPage<Props> = ({ blogs, portfolios }) => {
           <PortfolioSection portfolios={portfolios} />
           <Grid>
             <Grid.Col span={gridSpan}>
-              <GitHubSection />
+              <DynamicGitHubSection />
             </Grid.Col>
             <Grid.Col span={gridSpan}>
-              <TwitterSection />
+              <DynamicTwitterSection />
             </Grid.Col>
           </Grid>
         </Stack>
