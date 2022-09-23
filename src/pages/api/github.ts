@@ -80,7 +80,7 @@ const typeDefs = /* GraphQL */ `
   type Repository {
     name: String!
     description: String
-    languages: [Language!]
+    languages: [Language!]!
     forkCount: Int!
     stargazerCount: Int!
     url: String!

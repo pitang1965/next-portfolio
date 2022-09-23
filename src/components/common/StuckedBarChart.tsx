@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Progress } from '@mantine/core';
-import { Language, Maybe } from 'src/generated/graphql';
+import { Language } from 'src/generated/graphql';
 
 type Props = {
-  languages: Maybe<Array<Language>>|undefined;
+  languages: Array<Language>;
 };
 
 export const StuckedBarChart: FC<Props> = (props) => {

@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { ColorSwatch, Group, Stack, Text } from '@mantine/core';
 import { StuckedBarChart } from '../common/StuckedBarChart';
-import { Language, Maybe } from 'src/generated/graphql';
+import { Language } from 'src/generated/graphql';
 
 type Props = {
-  languages: Maybe<Array<Language>>|undefined;
+  languages: Array<Language>;
 };
 
 export const LanguageStatics: FC<Props> = (props) => {
