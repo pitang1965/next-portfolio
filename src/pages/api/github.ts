@@ -16,7 +16,10 @@ const resolvers = {
                 ... on Repository {
                   name
                   description
-                  languages(first: 5, orderBy: {field: SIZE, direction: DESC}) {
+                  languages(
+                    first: 5
+                    orderBy: { field: SIZE, direction: DESC }
+                  ) {
                     edges {
                       node {
                         color
@@ -29,6 +32,7 @@ const resolvers = {
                   forkCount
                   stargazerCount
                   url
+                  id
                 }
               }
             }
@@ -43,10 +47,10 @@ const resolvers = {
       });
 
       const data = await graphQLClient.request(query);
-      const object = data.user.pinnedItems.nodes.map((node:any) => ({
+      const object = data.user.pinnedItems.nodes.map((node: any) => ({
         name: node.name,
         description: node.description,
-        languages: node.languages.edges.map((edge:any) => ({
+        languages: node.languages.edges.map((edge: any) => ({
           color: edge.node.color,
           name: edge.node.name,
           percentage: Number(
@@ -59,6 +63,7 @@ const resolvers = {
         forkCount: node.forkCount,
         stargazerCount: node.stargazerCount,
         url: node.url,
+        id: node.id,
       }));
 
       console.log(JSON.stringify(object, undefined, 2));
@@ -80,6 +85,7 @@ const typeDefs = /* GraphQL */ `
     forkCount: Int!
     stargazerCount: Int!
     url: String!
+    id: String!
   }
   type Language {
     color: String!

@@ -2,21 +2,10 @@ import React, { FC } from 'react';
 import { Group, Stack, Paper, Text } from '@mantine/core';
 import { StarIcon } from '../icons/StarIcon';
 import { GitForkIcon } from '../icons/GitForkIcon';
-import type { LanguageStaticsType } from './LanguageStatics';
 import { LanguageStatics } from './LanguageStatics';
-
+import { Repository } from 'src/generated/graphql';
 type Props = {
-  data: Schema;
-};
-
-type Schema = {
-  id: string;
-  url: string;
-  name: string;
-  description: string;
-  stargazerCount: number;
-  forkCount: number;
-  languages: LanguageStaticsType[];
+  data: Repository;
 };
 
 export const GitHubCard: FC<Props> = (props) => {

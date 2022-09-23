@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
 import { Progress } from '@mantine/core';
-
-import type { LanguageStaticsType } from '../github/LanguageStatics';
+import { Language, Maybe } from 'src/generated/graphql';
 
 type Props = {
-  languages: LanguageStaticsType[];
+  languages: Maybe<Array<Language>>|undefined;
 };
 
 export const StuckedBarChart: FC<Props> = (props) => {
-  const sections = props.languages.map((language) => ({
+  const sections = props.languages?.map((language) => ({
     value: language.percentage,
     color: language.color,
   }));

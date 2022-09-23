@@ -4,6 +4,7 @@ import { GitHubCard } from './GitHubCard';
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
 import useSWR from 'swr';
+import { Repository } from 'src/generated/graphql';
 
 const fetcher = (query: string) =>
   fetch('/api/github', {
@@ -22,20 +23,21 @@ export const GitHubRepos = () => {
 
   const { data, error } = useSWR(
     `{
-      repositories {
+    repositories {
+      name
+      description
+      languages {
+        color
         name
-        description
-        languages {
-          color
-          name
-          percentage
-        }
-        forkCount
-        stargazerCount
-        url
+        percentage
       }
+      forkCount
+      stargazerCount
+      url
+      id
     }
-    `,
+  }
+  `,
     fetcher
   );
 
@@ -45,11 +47,12 @@ export const GitHubRepos = () => {
   if (!data) return <div>Loading...</div>;
 
   const { repositories } = data;
+  console.log('✨ ', repositories);
 
   return (
     <Container fluid>
       <Stack spacing='xl'>
-        {repositories?.slice(0, numbersToShow).map((repo: any) => (
+        {repositories?.slice(0, numbersToShow).map((repo: Repository) => (
           <GitHubCard data={repo} key={repo.id} />
         ))}
       </Stack>

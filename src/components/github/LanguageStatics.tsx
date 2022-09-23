@@ -1,15 +1,10 @@
 import React, { FC } from 'react';
 import { ColorSwatch, Group, Stack, Text } from '@mantine/core';
 import { StuckedBarChart } from '../common/StuckedBarChart';
-
-export type LanguageStaticsType = {
-  name: string;
-  color: string;
-  percentage: number;
-};
+import { Language, Maybe } from 'src/generated/graphql';
 
 type Props = {
-  languages: LanguageStaticsType[];
+  languages: Maybe<Array<Language>>|undefined;
 };
 
 export const LanguageStatics: FC<Props> = (props) => {
@@ -17,7 +12,7 @@ export const LanguageStatics: FC<Props> = (props) => {
     <Stack>
       <StuckedBarChart languages={props.languages} />
       <Group>
-        {props.languages.map((language) => (
+        {props.languages?.map((language) => (
           <Group key={language.name} spacing='xs'>
             <ColorSwatch color={language.color} size={6} />
             <Text size='xs' weight={700}>
