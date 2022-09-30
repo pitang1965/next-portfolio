@@ -14,10 +14,12 @@ import {
   NUMBER_OF_PRE_REDNDERED_BLOGS,
   NUMBER_OF_PRE_REDNDERED_PORTFOLIOS,
 } from 'src/libs/constants';
+import { getGitHubData } from 'src/libs/getGithubData';
 
 type Props = {
   blogs: BlogSchema[];
   portfolios: PortfolioSchema[];
+  githubs: any[];
 };
 
 const DynamicGitHubSection = dynamic(() =>
@@ -36,7 +38,7 @@ const DynamicPortfolioSection = dynamic(() =>
   )
 );
 
-const HomePage: NextPage<Props> = ({ blogs, portfolios }) => {
+const HomePage: NextPage<Props> = ({ blogs, portfolios, githubs }) => {
   const [isMobileUi] = useAtom(isMobileUiAtom);
   const gridSpan = isMobileUi ? 12 : 6;
 
@@ -49,7 +51,7 @@ const HomePage: NextPage<Props> = ({ blogs, portfolios }) => {
           <DynamicPortfolioSection portfolios={portfolios} />
           <Grid>
             <Grid.Col span={gridSpan}>
-              <DynamicGitHubSection />
+              <DynamicGitHubSection githubs={githubs} />
             </Grid.Col>
             <Grid.Col span={gridSpan}>
               <DynamicTwitterSection />
@@ -71,11 +73,13 @@ export const getStaticProps: GetStaticProps = async () => {
       endpoint: 'portfolio',
       queries: { limit: NUMBER_OF_PRE_REDNDERED_PORTFOLIOS },
     });
+    const res_github = await getGitHubData();
 
     return {
       props: {
         blogs: res_blog.contents,
         portfolios: res_portfolio.contents,
+        githubs: res_github,
       },
     };
   } catch (err) {

@@ -5,7 +5,7 @@
 * classnames
 * CSS Modules
 * dayjs
-* graphql & @graphql-yoga/node
+* graphql
 * graphql-request
 * jotai
 * Mantine
