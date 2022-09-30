@@ -3,12 +3,13 @@ import { Container, Stack } from '@mantine/core';
 import { GitHubCard } from './GitHubCard';
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';
+import { Repository } from 'src/generated/graphql';
 
 type Props = {
-  githubs: any[];
-}
+  githubs: Repository[];
+};
 
-export const GitHubRepos:FC<Props> = ({githubs}) => {
+export const GitHubRepos: FC<Props> = ({ githubs }) => {
   const [isMobileUi] = useAtom(isMobileUiAtom);
   const numbersToShow = isMobileUi ? 3 : 5;
 
@@ -16,7 +17,7 @@ export const GitHubRepos:FC<Props> = ({githubs}) => {
     <Container fluid>
       <Stack spacing='xl'>
         {githubs?.slice(0, numbersToShow).map((repo) => (
-          <GitHubCard data={repo} key={repo.id} />
+          <GitHubCard repository={repo} key={repo.id} />
         ))}
       </Stack>
     </Container>

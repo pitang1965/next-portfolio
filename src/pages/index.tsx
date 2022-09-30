@@ -15,11 +15,12 @@ import {
   NUMBER_OF_PRE_REDNDERED_PORTFOLIOS,
 } from 'src/libs/constants';
 import { getGitHubData } from 'src/libs/getGithubData';
+import { Repository } from 'src/generated/graphql';
 
 type Props = {
   blogs: BlogSchema[];
   portfolios: PortfolioSchema[];
-  githubs: any[];
+  githubs: Repository[];
 };
 
 const DynamicGitHubSection = dynamic(() =>

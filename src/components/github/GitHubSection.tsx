@@ -3,9 +3,10 @@ import { Center, Container, Divider, Stack, Title } from '@mantine/core';
 import { LinkButton } from 'src/components/common/LinkButton';
 import { GitHubRepos } from './GitHubRepos';
 import { githubUrl } from 'data/urls';
+import { Repository } from 'src/generated/graphql';
 
 type Props = {
-  githubs: any[];
+  githubs: Repository[];
 };
 
 export const GitHubSection: FC<Props> = ({ githubs }) => {

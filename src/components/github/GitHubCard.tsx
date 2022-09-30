@@ -5,10 +5,10 @@ import { GitForkIcon } from '../icons/GitForkIcon';
 import { LanguageStatics } from './LanguageStatics';
 import { Repository } from 'src/generated/graphql';
 type Props = {
-  data: Repository;
+  repository: Repository;
 };
 
-export const GitHubCard: FC<Props> = (props) => {
+export const GitHubCard: FC<Props> = ({ repository }) => {
   return (
     <Paper
       p='sm'
@@ -20,25 +20,28 @@ export const GitHubCard: FC<Props> = (props) => {
         },
       })}
     >
-      <a href={props.data.url}>
+      <a href={repository.url}>
         <Stack>
           <Text size='lg' weight={700}>
-            {props.data.name}
+            {repository.name}
           </Text>
           <Text size='sm' weight={500} lineClamp={2}>
-            {props.data.description}
+            {repository.description}
           </Text>
           <Group spacing='xs'>
             <StarIcon width={15} height={15} color='#909296' />
             <Text size='xs' color='dimmed'>
-              {props.data.stargazerCount}
+              {repository.stargazerCount}
             </Text>
             <GitForkIcon width={15} height={15} color='#909296' />
             <Text size='xs' color='dimmed'>
-              {props.data.forkCount}
+              {repository.forkCount}
             </Text>
           </Group>
-          <LanguageStatics languages={props.data.languages} />
+          <LanguageStatics
+            languages={repository.languages?.edges}
+            totalSize={repository.languages?.totalSize}
+          />
         </Stack>
       </a>
     </Paper>

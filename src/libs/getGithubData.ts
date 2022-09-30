@@ -1,4 +1,5 @@
 import { GraphQLClient, gql } from 'graphql-request';
+import { Repository } from 'src/generated/graphql';
 
 // GitHubからデータを取得
 export const getGitHubData = async () => {
@@ -40,24 +41,6 @@ export const getGitHubData = async () => {
   });
 
   const data = await graphQLClient.request(query);
-  const object = data.user.pinnedItems.nodes.map((node: any) => ({
-    name: node.name,
-    description: node.description,
-    languages: node.languages.edges.map((edge: any) => ({
-      color: edge.node.color,
-      name: edge.node.name,
-      percentage: Number(
-        (
-          (Number(edge.size) / Number(node.languages.totalSize)) *
-          100.0
-        ).toFixed(1)
-      ),
-    })),
-    forkCount: node.forkCount,
-    stargazerCount: node.stargazerCount,
-    url: node.url,
-    id: node.id,
-  }));
-
-  return object;
+  const repositories: Repository[] = data.user.pinnedItems.nodes;
+  return repositories;
 };
