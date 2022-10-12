@@ -8,6 +8,7 @@ import { Footer } from './Footer';
 import { Navbar } from 'src/components/layout/Navbar';
 import { useElementSize } from '@mantine/hooks';
 import { isMobileWidth } from 'src/utils/mobile';
+import { siteUrl } from 'data/urls';
 
 type Props = {
   children: ReactNode;
@@ -30,6 +31,12 @@ export const Layout: FC<Props> = (props) => {
     setOpened((prev) => !prev);
   }
 
+  const siteTitle = 'Next Portfolio';
+  const siteDescription =
+    'Next.jsで作成したPitang1965のポートフォリオサイトです。';
+  const imageUrl = `https://my-og-img.vercel.app/api/og?title=${props.content}`;
+  const twitter = '@pitang1965';
+
   return (
     <AppShell
       padding='md'
@@ -40,11 +47,17 @@ export const Layout: FC<Props> = (props) => {
       ref={ref}
     >
       <Head>
-        <title>Next Portfolio</title>
-        <meta
-          name='description'
-          content={`https://my-og-img.vercel.app/api/og?title=${props.content}`}
-        />
+        <title>{siteTitle}</title>
+        <meta name='description' content={imageUrl} />
+        <meta property='og:url' content={siteUrl} />
+        <meta property='og:title' content={siteTitle} />
+        <meta property='og:site_name' content={siteTitle} />
+        <meta property='og:description' content={siteDescription} />
+        <meta property='og:type' content='website' />
+        <meta property='og:image' content={imageUrl} />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:site' content={twitter} />
+        <meta name='twitter:creator' content={twitter} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       {props.children}
