@@ -41,7 +41,10 @@ export const Layout: FC<Props> = (props) => {
     >
       <Head>
         <title>Next Portfolio</title>
-        <meta name='description' content={props.content} />
+        <meta
+          name='description'
+          content={`https://my-og-img.vercel.app/api/og?title=${props.content}`}
+        />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       {props.children}
