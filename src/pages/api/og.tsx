@@ -28,7 +28,7 @@ export default function handler(req: NextRequest) {
             justifyContent: 'center',
           }}
         >
-          {title ? `ピータンのポートフォリオ -  ${title }` : 'ピータンのポートフォリオ'}
+          {title ? `@pitang1965 -  ${title }` : '@pitang1965'}
         </div>
       ),
       {
