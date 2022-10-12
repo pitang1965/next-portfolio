@@ -34,8 +34,7 @@ export const Layout: FC<Props> = (props) => {
   const siteTitle = 'Next Portfolio';
   const siteDescription =
     'Next.jsで作成したPitang1965のポートフォリオサイトです。';
-  const siteUrl = 'https://pitang1965-next-portfolio.vercel.app';
-  const imageUrl = `${siteUrl}/api/og?title=${props.content}`;
+  const imageUrl = `https://my-og-img.vercel.app/api/og?title=${props.content}`;
   const twitter = '@pitang1965';
 
   return (
