@@ -12,30 +12,30 @@ specifiers:
   '@mantine/form': 5.5.5
   '@mantine/hooks': 5.5.5
   '@mantine/next': 5.5.5
-  '@mantine/notifications': ^5.5.5
+  '@mantine/notifications': 5.6.2
   '@tabler/icons': 1.104.0
   '@types/node': 18.11.0
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
-  '@vercel/og': ^0.0.18
+  '@vercel/og': 0.0.18
   classnames: 2.3.2
-  dayjs: ^1.11.5
-  env-cmd: ^10.1.0
+  dayjs: 1.11.6
+  env-cmd: 10.1.0
   eslint: 8.25.0
   eslint-config-next: 12.3.1
   eslint-config-prettier: 8.5.0
   eslint-plugin-unused-imports: 2.0.0
-  graphql: ^16.6.0
-  graphql-request: ^5.0.0
+  graphql: 16.6.0
+  graphql-request: 5.0.0
   jotai: 1.8.5
-  microcms-js-sdk: ^2.2.1
+  microcms-js-sdk: 2.3.0
   next: 12.3.1
   prettier: 2.7.1
   react: 18.2.0
   react-dom: 18.2.0
-  react-infinite-scroll-component: ^6.1.0
-  swr: ^1.3.0
-  twitter-api-sdk: ^1.2.0
+  react-infinite-scroll-component: 6.1.0
+  swr: 1.3.0
+  twitter-api-sdk: 1.2.1
   typescript: 4.8.4
 
 dependencies:
@@ -45,22 +45,22 @@ dependencies:
   '@mantine/form': 5.5.5_react@18.2.0
   '@mantine/hooks': 5.5.5_react@18.2.0
   '@mantine/next': 5.5.5_6tawbrm53n4muonpugu7ldclma
-  '@mantine/notifications': 5.5.5_sboc75uudxrw5k7gcptvtad4eq
+  '@mantine/notifications': 5.6.2_sboc75uudxrw5k7gcptvtad4eq
   '@tabler/icons': 1.104.0_biqbaboplfbrettd7655fr4n2y
   '@vercel/og': 0.0.18
   classnames: 2.3.2
-  dayjs: 1.11.5
+  dayjs: 1.11.6
   eslint-plugin-unused-imports: 2.0.0_eslint@8.25.0
   graphql: 16.6.0
   graphql-request: 5.0.0_graphql@16.6.0
   jotai: 1.8.5_react@18.2.0
-  microcms-js-sdk: 2.2.1
+  microcms-js-sdk: 2.3.0
   next: 12.3.1_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-infinite-scroll-component: 6.1.0_react@18.2.0
   swr: 1.3.0_react@18.2.0
-  twitter-api-sdk: 1.2.0
+  twitter-api-sdk: 1.2.1
 
 devDependencies:
   '@graphql-codegen/cli': 2.13.7_hccazl2vcyn3ztqntqxihtgnfu
@@ -1474,17 +1474,17 @@ packages:
       - '@emotion/server'
     dev: false
 
-  /@mantine/notifications/5.5.5_sboc75uudxrw5k7gcptvtad4eq:
-    resolution: {integrity: sha512-H0xtjnaMxSNk9lbG2paSG25pILs2HrBfTxf5WB+9atnjopE9K/IBv+9hHPgMIjCp8CQ4mUEUtsGWc9iT4HuXdQ==}
+  /@mantine/notifications/5.6.2_sboc75uudxrw5k7gcptvtad4eq:
+    resolution: {integrity: sha512-KkVmfMvxfEf8e5VvyWV6m6Duo8xjwFmZNW6tFd0A7R9FtZPiq2furNeUvwnmifCOQ2tV+TfJPqCX8+EZC/h/2g==}
     peerDependencies:
-      '@mantine/core': 5.5.5
-      '@mantine/hooks': 5.5.5
+      '@mantine/core': 5.6.2
+      '@mantine/hooks': 5.6.2
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
       '@mantine/core': 5.5.5_ekj4xtn5nqtot2bmww23lp2qbq
       '@mantine/hooks': 5.5.5_react@18.2.0
-      '@mantine/utils': 5.5.5_react@18.2.0
+      '@mantine/utils': 5.6.2_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-transition-group: 4.4.2_biqbaboplfbrettd7655fr4n2y
@@ -1522,6 +1522,14 @@ packages:
 
   /@mantine/utils/5.5.5_react@18.2.0:
     resolution: {integrity: sha512-nt8+A0N1cV4cJNqlKuXazShoEwqtLohHNKFuywEdF3B6vHWdbY799PbT2WmqGTwNQ+se8y5/nBMmamBZrUN4fg==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /@mantine/utils/5.6.2_react@18.2.0:
+    resolution: {integrity: sha512-oWBVtewwIiqqKMCw8JahrHsDb1h68Eq878RWhnH+wOC1FOz1oV0ZXz0+5/gMUFZGss0duWEZXTVXafkBnD2HZA==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
@@ -2662,8 +2670,8 @@ packages:
     resolution: {integrity: sha512-qTcEYLen3r7ojZNgVUaRggOI+KM7jrKxXeSHhogh/TWxYMeONEMqY+hmkobiYQozsGIyg9OYVzO4ZIfoB4I0pQ==}
     dev: true
 
-  /dayjs/1.11.5:
-    resolution: {integrity: sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==}
+  /dayjs/1.11.6:
+    resolution: {integrity: sha512-zZbY5giJAinCG+7AGaw0wIhNZ6J8AhWuSXKvuc1KAyMiRsvGQWqh4L+MomvhdAYjN+lqvVCMq1I41e3YHvXkyQ==}
     dev: false
 
   /debounce/1.2.1:
@@ -4209,10 +4217,10 @@ packages:
       '@types/node': 18.11.0
     dev: true
 
-  /microcms-js-sdk/2.2.1:
-    resolution: {integrity: sha512-6386axi7C+Fspe53/1ZsVNgMjhk1065ch/lx4Vy6lJngXdkWkvTpMpVQaOwsnPL1+T3s/ugvaiSYM7L5o/uuag==}
+  /microcms-js-sdk/2.3.0:
+    resolution: {integrity: sha512-VNFyO1leoy5SaBKfTaglWiGn3dYY531B6CoeIkQDKxmY6EjxQaZJXe+ukMFJNQsus0stI0Vss0KaeNsHbfW9IA==}
     dependencies:
-      node-fetch: 2.6.7
+      cross-fetch: 3.1.5
       qs: 6.11.0
     transitivePeerDependencies:
       - encoding
@@ -5261,8 +5269,8 @@ packages:
       typescript: 4.8.4
     dev: true
 
-  /twitter-api-sdk/1.2.0:
-    resolution: {integrity: sha512-D9s+9JYSyJNvylNdMOJTjZ5wPj7erQrjXTOo7y0OTWL1rKFe4yWh7gxorcxe3VJV42tihp1YrFRmk8Tovw+T7w==}
+  /twitter-api-sdk/1.2.1:
+    resolution: {integrity: sha512-tNQ6DGYucFk94JlnUMsHCkHg5o1wnCdHh71Y2ukygNVssOdD1gNVjOpaojJrdwbEAhoZvcWdGHerCa55F8HKxQ==}
     engines: {node: '>=14'}
     dependencies:
       abort-controller: 3.0.0
