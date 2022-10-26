@@ -17,7 +17,7 @@ specifiers:
   '@types/node': 18.11.0
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
-  '@vercel/og': ^0.0.18
+  '@vercel/og': ^0.0.20
   classnames: 2.3.2
   dayjs: ^1.11.5
   env-cmd: ^10.1.0
@@ -47,7 +47,7 @@ dependencies:
   '@mantine/next': 5.5.5_onxdffetnfmpdxwcgp3zfqmiie
   '@mantine/notifications': 5.5.5_sboc75uudxrw5k7gcptvtad4eq
   '@tabler/icons': 1.104.0_biqbaboplfbrettd7655fr4n2y
-  '@vercel/og': 0.0.18
+  '@vercel/og': 0.0.20
   classnames: 2.3.2
   dayjs: 1.11.5
   eslint-plugin-unused-imports: 2.0.0_eslint@8.25.0
@@ -1987,12 +1987,12 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vercel/og/0.0.18:
-    resolution: {integrity: sha512-cEid22FkiNrgJ/HtawA6V3+x2jhP+KqwwNG97afFsFmZ/oPsh3Bm01NzCVSpeR96/aPaT2/59pbFXGxulxgp7g==}
+  /@vercel/og/0.0.20:
+    resolution: {integrity: sha512-089P+TfqWz0xBxjOvOhkZIDDtfrLcye94H4IZ+SqxoGPWpNGXaBvRJER/z5SoJxJRcCAL8tPiK5zdjRskM6tLw==}
     engines: {node: '>=16'}
     dependencies:
       '@resvg/resvg-wasm': 2.0.0-alpha.4
-      satori: 0.0.40
+      satori: 0.0.43
       yoga-wasm-web: 0.1.2
     dev: false
 
@@ -2833,6 +2833,10 @@ packages:
   /electron-to-chromium/1.4.258:
     resolution: {integrity: sha512-vutF4q0dTUXoAFI7Vbtdwen/BJVwPgj8GRg/SElOodfH7VTX+svUe62A5BG41QRQGk5HsZPB0M++KH1lAlOt0A==}
     dev: true
+
+  /emoji-regex/10.2.1:
+    resolution: {integrity: sha512-97g6QgOk8zlDRdgq1WxwgTMgEWGVAQvB5Fdpgc1MkNy56la5SKP9GsMXKDOdqwn90/41a8yPwIGk1Y6WVbeMQA==}
+    dev: false
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -4893,14 +4897,15 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /satori/0.0.40:
-    resolution: {integrity: sha512-SoXGq/89mBU34U1h4g/nXeL9DHS/Aof2iUL3FHabq+laSRQUSUI1ZhPhak3J6VMNW8wghYwJ/Bi7aF8FLPq9qQ==}
+  /satori/0.0.43:
+    resolution: {integrity: sha512-SzYwr+LsELWRJU9KMviEOE9TdShry+R5AdS54YQvgAVKFDN4yniAIzwQk1/z2TtIx0ceUT9zTeosWAoWvJBEtQ==}
     engines: {node: '>=16'}
     dependencies:
       '@shuding/opentype.js': 1.4.0-beta.0
       css-background-parser: 0.1.0
       css-box-shadow: 1.0.0-3
       css-to-react-native: 3.0.0
+      emoji-regex: 10.2.1
       postcss-value-parser: 4.2.0
       yoga-layout-prebuilt: 1.10.0
     dev: false
