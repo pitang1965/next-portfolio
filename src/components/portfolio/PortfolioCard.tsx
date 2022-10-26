@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { FC } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { Paper, Stack, Text, Tooltip } from '@mantine/core';
 import { AnchorSelf } from 'src/components/common/AnchorSelf';
 import { PortfolioSchema } from './Portfolios';
