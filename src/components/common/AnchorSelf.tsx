@@ -47,7 +47,7 @@ export const AnchorSelf: FC<Props> = (props) => {
   }
 
   return (
-    <Link href={props.href}>
+    <Link href={props.href} legacyBehavior>
       <Anchor
         component='a'
         sx={(theme) => ({
