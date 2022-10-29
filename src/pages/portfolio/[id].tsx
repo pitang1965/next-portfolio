@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { Layout } from 'src/components/layout/Layout';
@@ -61,10 +61,13 @@ const PortfolioDetailPage: NextPage<Props> = ({ data }) => {
             <Image
               src={data.imageUrl.url}
               alt={data.title}
-              layout='responsive'
               width={data.imageUrl.width}
               height={data.imageUrl.height}
-            />
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto"
+              }} />
           </a>
         </Tooltip>
         <TypographyStylesProvider>

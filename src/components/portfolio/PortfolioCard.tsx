@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { FC } from 'react';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { Paper, Stack, Text, Tooltip } from '@mantine/core';
 import { AnchorSelf } from 'src/components/common/AnchorSelf';
 import { PortfolioSchema } from './Portfolios';
@@ -29,11 +29,14 @@ export const PortfolioCard: FC<Props> = (props) => {
             <Image
               src={props.data.imageUrl.url}
               alt={props.data.title}
-              layout='responsive'
-              objectFit='cover'
               width={358}
               height={184}
-            />
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto",
+                objectFit: "cover"
+              }} />
           </a>
         </Stack>
       </Tooltip>
