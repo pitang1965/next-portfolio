@@ -53,7 +53,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <MantineProvider
           withGlobalStyles
           withNormalizeCSS
-          theme={{ colorScheme }}
+          theme={{
+            colorScheme,
+            focusRingStyles: {
+              inputStyles: (theme) => ({
+                outline: `2px solid ${theme.colors.orange[5]}`,
+              }),
+            },
+          }}
         >
           <NotificationsProvider>
             <MyGlobalStyles />
