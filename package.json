@@ -12,11 +12,11 @@
   "dependencies": {
     "@emotion/react": "11.10.5",
     "@emotion/server": "11.10.0",
-    "@mantine/core": "5.7.2",
-    "@mantine/form": "5.7.2",
-    "@mantine/hooks": "5.7.2",
-    "@mantine/next": "5.7.2",
-    "@mantine/notifications": "^5.7.2",
+    "@mantine/core": "5.8.0",
+    "@mantine/form": "5.8.0",
+    "@mantine/hooks": "5.8.0",
+    "@mantine/next": "5.8.0",
+    "@mantine/notifications": "^5.8.0",
     "@tabler/icons": "1.111.0",
     "@vercel/og": "^0.0.20",
     "classnames": "2.3.2",
@@ -34,19 +34,19 @@
     "twitter-api-sdk": "^1.2.1"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.13.11",
+    "@graphql-codegen/cli": "2.13.12",
     "@graphql-codegen/introspection": "2.2.1",
-    "@graphql-codegen/typescript": "2.8.1",
-    "@graphql-codegen/typescript-operations": "2.5.6",
+    "@graphql-codegen/typescript": "2.8.2",
+    "@graphql-codegen/typescript-operations": "2.5.7",
     "@graphql-codegen/typescript-react-apollo": "3.3.6",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.8",
+    "@types/react-dom": "18.0.9",
     "env-cmd": "^10.1.0",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "eslint-config-prettier": "8.5.0",
     "prettier": "2.7.1",
-    "typescript": "4.8.4"
+    "typescript": "4.9.3"
   }
 }
