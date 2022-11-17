@@ -27,7 +27,7 @@ specifiers:
   eslint-plugin-unused-imports: 2.0.0
   graphql: ^16.6.0
   graphql-request: ^5.0.0
-  jotai: 1.9.2
+  jotai: 1.10.0
   microcms-js-sdk: ^2.3.1
   next: 13.0.3
   prettier: 2.7.1
@@ -53,7 +53,7 @@ dependencies:
   eslint-plugin-unused-imports: 2.0.0_eslint@8.27.0
   graphql: 16.6.0
   graphql-request: 5.0.0_graphql@16.6.0
-  jotai: 1.9.2_react@18.2.0
+  jotai: 1.10.0_react@18.2.0
   microcms-js-sdk: 2.3.1
   next: 13.0.3_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -3980,35 +3980,41 @@ packages:
       ws: 8.9.0
     dev: true
 
-  /jotai/1.9.2_react@18.2.0:
-    resolution: {integrity: sha512-/893WrniZwoVc0+3JR056r0FTC/tGbgyHco9dfgde6K8TU6XNxrOSw4jCRdDicncw67A37v2GNGzXSpHKbHPmw==}
+  /jotai/1.10.0_react@18.2.0:
+    resolution: {integrity: sha512-3Q8kQU3Ktds+80Ku4dVcvnwSXEcK0Fg0b6mC1+4wz3rmF64lOGNUySKXQ4njvYCWodR8bw2HygOKYSYkHxQQmA==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@babel/core': '*'
       '@babel/template': '*'
-      immer: '*'
+      jotai-immer: '*'
+      jotai-optics: '*'
+      jotai-redux: '*'
       jotai-tanstack-query: '*'
       jotai-urql: '*'
-      optics-ts: '*'
+      jotai-valtio: '*'
+      jotai-xstate: '*'
+      jotai-zustand: '*'
       react: '>=16.8'
-      valtio: '*'
-      xstate: '*'
     peerDependenciesMeta:
       '@babel/core':
         optional: true
       '@babel/template':
         optional: true
-      immer:
+      jotai-immer:
+        optional: true
+      jotai-optics:
+        optional: true
+      jotai-redux:
         optional: true
       jotai-tanstack-query:
         optional: true
       jotai-urql:
         optional: true
-      optics-ts:
+      jotai-valtio:
         optional: true
-      valtio:
+      jotai-xstate:
         optional: true
-      xstate:
+      jotai-zustand:
         optional: true
     dependencies:
       react: 18.2.0
