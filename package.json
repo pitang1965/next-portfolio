@@ -18,7 +18,7 @@
     "@mantine/next": "5.8.2",
     "@mantine/notifications": "^5.8.2",
     "@tabler/icons": "1.112.0",
-    "@vercel/og": "^0.0.20",
+    "@vercel/og": "^0.0.21",
     "classnames": "2.3.2",
     "dayjs": "^1.11.6",
     "eslint-plugin-unused-imports": "2.0.0",
