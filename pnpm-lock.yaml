@@ -13,7 +13,7 @@ specifiers:
   '@mantine/hooks': 5.8.4
   '@mantine/next': 5.8.4
   '@mantine/notifications': ^5.8.4
-  '@tabler/icons': 1.113.0
+  '@tabler/icons': 1.114.0
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
@@ -46,7 +46,7 @@ dependencies:
   '@mantine/hooks': 5.8.4_react@18.2.0
   '@mantine/next': 5.8.4_dclyrrvoc3m3oykp3wxsxzj7bu
   '@mantine/notifications': 5.8.4_7mtijx3d4ydbiw4kerjuhb7ysm
-  '@tabler/icons': 1.113.0_biqbaboplfbrettd7655fr4n2y
+  '@tabler/icons': 1.114.0_biqbaboplfbrettd7655fr4n2y
   '@vercel/og': 0.0.21
   classnames: 2.3.2
   dayjs: 1.11.6
@@ -1905,8 +1905,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@tabler/icons/1.113.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-DjxsvR/0HFHD/utQlM+q3wpl1W2n+jgEZkyfkCkc295rCoAfeXHIBfz/9ROrSHkr205Kq/M8KpQR0Nd4kjwODQ==}
+  /@tabler/icons/1.114.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-TI6l2YhGlpZGutaT/zrzTjLF0lsdB648QzM80Dhe22rL2lggvqOzcyWTw6ctmFTySgCwkmEnrUImOICjTlqoAA==}
     peerDependencies:
       react: ^16.x || 17.x || 18.x
       react-dom: ^16.x || 17.x || 18.x
