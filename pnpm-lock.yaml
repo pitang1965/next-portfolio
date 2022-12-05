@@ -9,7 +9,7 @@ specifiers:
   '@graphql-codegen/typescript-operations': 2.5.8
   '@graphql-codegen/typescript-react-apollo': 3.3.7
   '@mantine/core': 5.9.1
-  '@mantine/form': 5.9.1
+  '@mantine/form': 5.9.2
   '@mantine/hooks': 5.9.1
   '@mantine/next': 5.9.1
   '@mantine/notifications': ^5.9.1
@@ -42,7 +42,7 @@ dependencies:
   '@emotion/react': 11.10.5_kzbn2opkn2327fwg5yzwzya5o4
   '@emotion/server': 11.10.0
   '@mantine/core': 5.9.1_yuku5ko3tzvxle2si3aowxciya
-  '@mantine/form': 5.9.1_react@18.2.0
+  '@mantine/form': 5.9.2_react@18.2.0
   '@mantine/hooks': 5.9.1_react@18.2.0
   '@mantine/next': 5.9.1_zuvzbl5s5noydr2bwzhqwgjbcq
   '@mantine/notifications': 5.9.1_mvagb2bebvshkr4wsoia5f63vu
@@ -1488,8 +1488,8 @@ packages:
       - '@types/react'
     dev: false
 
-  /@mantine/form/5.9.1_react@18.2.0:
-    resolution: {integrity: sha512-U+LVrz7Jm8Cg3Rn8MuAgnlym9UtPitreWQmdJFuHbhZoOy21Rq6Pqg+EiQt/Ua9+ijv+1af7wQcImKKyhfpXYw==}
+  /@mantine/form/5.9.2_react@18.2.0:
+    resolution: {integrity: sha512-FXIaKI91oRhgpBV0JNSo+b1e8NzzwXRhKeGGRMswddEOZO9C5htnsaq+5dfeEY2xgJup2nFpz9e6PYz2XrKcuw==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
