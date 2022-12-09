@@ -4,7 +4,7 @@ import { Tweets } from './Tweets';
 import { LinkButton } from 'src/components/common/LinkButton';
 import { twitterUrl } from 'data/urls';
 
-export const TwitterSection = () => {
+const TwitterSection = () => {
   return (
     <Container>
       <Stack spacing='lg'>
@@ -20,3 +20,5 @@ export const TwitterSection = () => {
     </Container>
   );
 };
+
+export default TwitterSection;

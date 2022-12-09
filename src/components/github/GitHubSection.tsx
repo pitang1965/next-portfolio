@@ -9,7 +9,7 @@ type Props = {
   githubs: Repository[];
 };
 
-export const GitHubSection: FC<Props> = ({ githubs }) => {
+const GitHubSection: FC<Props> = ({ githubs }) => {
   return (
     <Container>
       <Stack spacing='lg'>
@@ -27,3 +27,5 @@ export const GitHubSection: FC<Props> = ({ githubs }) => {
     </Container>
   );
 };
+
+export default GitHubSection;

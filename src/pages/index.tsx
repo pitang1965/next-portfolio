@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { GetStaticProps, NextPage } from 'next';
-import dynamic from 'next/dynamic';
 import { Layout } from 'src/components/layout/Layout';
 import { Container, Grid, Stack } from '@mantine/core';
 import { TitleSection } from 'src/components/TitleSection';
@@ -23,20 +22,14 @@ type Props = {
   githubs: Repository[];
 };
 
-const DynamicGitHubSection = dynamic(() =>
-  import('src/components/github/GitHubSection').then((mod) => mod.GitHubSection)
+const GitHubSection = lazy(() => import('src/components/github/GitHubSection'));
+
+const TwitterSection = lazy(
+  () => import('src/components/twitter/TwitterSection')
 );
 
-const DynamicTwitterSection = dynamic(() =>
-  import('src/components/twitter/TwitterSection').then(
-    (mod) => mod.TwitterSection
-  )
-);
-
-const DynamicPortfolioSection = dynamic(() =>
-  import('src/components/portfolio/PortfolioSection').then(
-    (mod) => mod.PortfolioSection
-  )
+const PortfolioSection = lazy(
+  () => import('src/components/portfolio/PortfolioSection')
 );
 
 const HomePage: NextPage<Props> = ({ blogs, portfolios, githubs }) => {
@@ -49,13 +42,13 @@ const HomePage: NextPage<Props> = ({ blogs, portfolios, githubs }) => {
         <Stack spacing='lg'>
           <TitleSection name='ピータン' />
           <BlogSection blogs={blogs} />
-          <DynamicPortfolioSection portfolios={portfolios} />
+          <PortfolioSection portfolios={portfolios} />
           <Grid>
             <Grid.Col span={gridSpan}>
-              <DynamicGitHubSection githubs={githubs} />
+              <GitHubSection githubs={githubs} />
             </Grid.Col>
             <Grid.Col span={gridSpan}>
-              <DynamicTwitterSection />
+              <TwitterSection />
             </Grid.Col>
           </Grid>
         </Stack>

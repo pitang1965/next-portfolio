@@ -10,7 +10,7 @@ type Props = {
   portfolios: PortfolioSchema[];
 };
 
-export const PortfolioSection: FC<Props> = ({ portfolios }) => {
+const PortfolioSection: FC<Props> = ({ portfolios }) => {
   return (
     <Container sx={{ width: '100%' }}>
       <Stack>
@@ -28,3 +28,5 @@ export const PortfolioSection: FC<Props> = ({ portfolios }) => {
     </Container>
   );
 };
+
+export default PortfolioSection;
