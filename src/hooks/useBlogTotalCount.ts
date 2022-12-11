@@ -1,11 +1,11 @@
 import useSWR from 'swr';
 
 export function useBlogTotalCount() {
-  const { data, error } = useSWR('/api/blog-total-count');
+  const { data, error, isLoading } = useSWR('/api/blog-total-count');
 
   return {
     blogTotalCount: data,
-    isLoading: !error && !data,
+    isLoading,
     isError: error,
   };
 }
