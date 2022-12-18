@@ -10,8 +10,8 @@ import { BlogSchema } from 'src/components/blog/Blogs';
 import { PortfolioSchema } from 'src/components/portfolio/Portfolios';
 import { client } from 'src/pages/api/client';
 import {
-  NUMBER_OF_PRE_REDNDERED_BLOGS,
-  NUMBER_OF_PRE_REDNDERED_PORTFOLIOS,
+  NUMBER_OF_PRE_RENDERED_BLOGS,
+  NUMBER_OF_PRE_RENDERED_PORTFOLIOS,
 } from 'src/libs/constants';
 import { getGitHubData } from 'src/libs/getGithubData';
 import { Repository } from 'src/generated/graphql';
@@ -61,11 +61,11 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const res_blog = await client.get({
       endpoint: 'blog',
-      queries: { limit: NUMBER_OF_PRE_REDNDERED_BLOGS },
+      queries: { limit: NUMBER_OF_PRE_RENDERED_BLOGS },
     });
     const res_portfolio = await client.get({
       endpoint: 'portfolio',
-      queries: { limit: NUMBER_OF_PRE_REDNDERED_PORTFOLIOS },
+      queries: { limit: NUMBER_OF_PRE_RENDERED_PORTFOLIOS },
     });
     const res_github = await getGitHubData();
 

@@ -15,7 +15,7 @@ import { client } from 'src/pages/api/client';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import {
   MAX_NUMBER_OF_BLOGS,
-  NUMBER_OF_PRE_REDNDERED_BLOGS,
+  NUMBER_OF_PRE_RENDERED_BLOGS,
 } from 'src/libs/constants';
 import { assertIsDefined } from 'src/utils/assert';
 import { useBlogTotalCount } from 'src/hooks/useBlogTotalCount';
@@ -101,7 +101,7 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const res = await client.get({
       endpoint: 'blog',
-      queries: { limit: NUMBER_OF_PRE_REDNDERED_BLOGS },
+      queries: { limit: NUMBER_OF_PRE_RENDERED_BLOGS },
     });
 
     return {
