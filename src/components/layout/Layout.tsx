@@ -9,6 +9,7 @@ import { Navbar } from 'src/components/layout/Navbar';
 import { useElementSize } from '@mantine/hooks';
 import { isMobileWidth } from 'src/utils/mobile';
 import { siteUrl } from 'data/urls';
+import styles from './Layout.module.css';
 
 type Props = {
   children: ReactNode;
@@ -45,6 +46,7 @@ export const Layout: FC<Props> = (props) => {
       navbarOffsetBreakpoint='sm'
       navbar={<Navbar opened={opened} toggleOpenState={toggleOpenState} />}
       ref={ref}
+      className={styles.container}
     >
       <Head>
         <title>{siteTitle}</title>
