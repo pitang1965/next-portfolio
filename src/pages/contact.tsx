@@ -12,7 +12,7 @@ import {
   TextInput,
   Title,
 } from '@mantine/core';
-import { useForm } from '@mantine/form';
+import { useForm, hasLength, isEmail } from '@mantine/form';
 import { showNotification, hideNotification } from '@mantine/notifications';
 import { IconCheck } from '@tabler/icons';
 
@@ -25,7 +25,9 @@ const ContactPage: NextPage = () => {
     },
 
     validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+      email: isEmail('不適切なEメールアドレスです。'),
+      name: hasLength({ min: 2, max: 20 }, '長さは2文字以上、20文字以下にしてください。'),
+      message: hasLength({ min: 5, max: 500 }, '長さは5文字以上、500文字以下にしてください。'),
     },
   });
 
