@@ -1,5 +1,5 @@
 # ポートフォリオサイト
-* IT KINGDOMでの学習の一環で作成しました。
+* IT KINGDOMでの学習の一環で作成しました。ちょっとgitの練習で変更。 
 
 ## 使用している技術、サービスおよびライブラリ
 ### [classnames](https://github.com/JedWatson/classnames#readme)
