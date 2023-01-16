@@ -27,7 +27,7 @@ specifiers:
   eslint-plugin-unused-imports: 2.0.0
   graphql: ^16.6.0
   graphql-request: ^5.1.0
-  jotai: 1.13.0
+  jotai: 1.13.1
   microcms-js-sdk: ^2.3.2
   next: 13.1.1
   prettier: 2.8.2
@@ -53,7 +53,7 @@ dependencies:
   eslint-plugin-unused-imports: 2.0.0_eslint@8.31.0
   graphql: 16.6.0
   graphql-request: 5.1.0_graphql@16.6.0
-  jotai: 1.13.0_react@18.2.0
+  jotai: 1.13.1_react@18.2.0
   microcms-js-sdk: 2.3.2
   next: 13.1.1_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -4117,8 +4117,8 @@ packages:
       ws: 8.11.0
     dev: true
 
-  /jotai/1.13.0_react@18.2.0:
-    resolution: {integrity: sha512-SPTO46Jw1aJTp2i18tiKgk++nKNKJTMNw4qYFy9QRTydceWvD2Eys+YgB7cb1S6pzbM9i0Ik/y7Yl7IH8k9Lig==}
+  /jotai/1.13.1_react@18.2.0:
+    resolution: {integrity: sha512-RUmH1S4vLsG3V6fbGlKzGJnLrDcC/HNb5gH2AeA9DzuJknoVxSGvvg8OBB7lke+gDc4oXmdVsaKn/xDUhWZ0vw==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
       '@babel/core': '*'
