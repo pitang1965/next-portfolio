@@ -16,7 +16,7 @@ specifiers:
   '@tabler/icons': 1.119.0
   '@types/node': 18.13.0
   '@types/react': 18.0.28
-  '@types/react-dom': 18.0.10
+  '@types/react-dom': 18.0.11
   '@vercel/og': ^0.0.27
   classnames: 2.3.2
   dayjs: ^1.11.7
@@ -27,7 +27,7 @@ specifiers:
   eslint-plugin-unused-imports: 2.0.0
   graphql: ^16.6.0
   graphql-request: ^5.1.0
-  jotai: 2.0.1
+  jotai: 2.0.2
   microcms-js-sdk: ^2.3.2
   next: 13.1.6
   prettier: 2.8.4
@@ -45,7 +45,7 @@ dependencies:
   '@mantine/form': 5.10.1_react@18.2.0
   '@mantine/hooks': 5.10.1_react@18.2.0
   '@mantine/next': 5.10.1_frkyvidol3cyjondljhrqtyp5u
-  '@mantine/notifications': 5.10.3_ynz4r3bmi75slbqnmaycv7w7wa
+  '@mantine/notifications': 5.10.4_ynz4r3bmi75slbqnmaycv7w7wa
   '@tabler/icons': 1.119.0_biqbaboplfbrettd7655fr4n2y
   '@vercel/og': 0.0.27
   classnames: 2.3.2
@@ -53,7 +53,7 @@ dependencies:
   eslint-plugin-unused-imports: 2.0.0_eslint@8.34.0
   graphql: 16.6.0
   graphql-request: 5.1.0_graphql@16.6.0
-  jotai: 2.0.1_react@18.2.0
+  jotai: 2.0.2_react@18.2.0
   microcms-js-sdk: 2.3.2
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -70,7 +70,7 @@ devDependencies:
   '@graphql-codegen/typescript-react-apollo': 3.3.7_graphql@16.6.0
   '@types/node': 18.13.0
   '@types/react': 18.0.28
-  '@types/react-dom': 18.0.10
+  '@types/react-dom': 18.0.11
   env-cmd: 10.1.0
   eslint: 8.34.0
   eslint-config-next: 13.1.6_7kw3g6rralp5ps6mg3uyzz6azm
@@ -1618,17 +1618,17 @@ packages:
       - '@emotion/server'
     dev: false
 
-  /@mantine/notifications/5.10.3_ynz4r3bmi75slbqnmaycv7w7wa:
-    resolution: {integrity: sha512-Gi/7LVonBkaz7VW8HboFBSrvliuQOopMyocrucXwVEYTSyTpws/fderdw04hyGczrReb6IhJX5eOr6qHFaNlWA==}
+  /@mantine/notifications/5.10.4_ynz4r3bmi75slbqnmaycv7w7wa:
+    resolution: {integrity: sha512-2OyEilPfAFd/+bmYeJwLwJmY36X52kNIsnpkH4iUyDllXOVjoy1MOJTvNE1vWUP8OxbuneNIwr02xfpQ4maIfQ==}
     peerDependencies:
-      '@mantine/core': 5.10.3
-      '@mantine/hooks': 5.10.3
+      '@mantine/core': 5.10.4
+      '@mantine/hooks': 5.10.4
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
       '@mantine/core': 5.10.1_ahgchuwcrjqokksjxlfk4afr24
       '@mantine/hooks': 5.10.1_react@18.2.0
-      '@mantine/utils': 5.10.3_react@18.2.0
+      '@mantine/utils': 5.10.4_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-transition-group: 4.4.2_biqbaboplfbrettd7655fr4n2y
@@ -1672,8 +1672,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@mantine/utils/5.10.3_react@18.2.0:
-    resolution: {integrity: sha512-ZfR1wouA/rz3xTOb2wBnrQpIiyjLcCLLvbUo7rzaG3LhFy7UoGjZ6uqIW9qDrzs7SR4tETRfMxedYagjcoCiEg==}
+  /@mantine/utils/5.10.4_react@18.2.0:
+    resolution: {integrity: sha512-Xrx7Pk+GOwk/0P0qa/JEknZ5AzUBRnD+Ghz1Wu3z4w32NwsNSgq/8YvFVhvxAP7FMbi7Z5xicHzHmhXy1BvZrw==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
@@ -2067,8 +2067,8 @@ packages:
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
 
-  /@types/react-dom/18.0.10:
-    resolution: {integrity: sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg==}
+  /@types/react-dom/18.0.11:
+    resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
     dependencies:
       '@types/react': 18.0.28
     dev: true
@@ -4168,8 +4168,8 @@ packages:
       ws: 8.11.0
     dev: true
 
-  /jotai/2.0.1_react@18.2.0:
-    resolution: {integrity: sha512-b/BpBFkv3nq8HgT6YX5h5/y9VfKIn9OL1dO6gd9bWTgKt6LLe24VIMURTDwSYS888XfubuRQlbepb5IQGAtmcQ==}
+  /jotai/2.0.2_react@18.2.0:
+    resolution: {integrity: sha512-0yOked08Swa84LUbBjtj7ZLZrE05n3u50rHeZ+bsT86thUjcy0kFgQz9GmEWhYbQDFoT1G8Ww6edSj/MBJHO4A==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
       react: '>=17.0.0'
