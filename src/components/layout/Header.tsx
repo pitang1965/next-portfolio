@@ -10,7 +10,7 @@ import {
   Text,
 } from '@mantine/core';
 import { AnchorSelf } from '../common/AnchorSelf';
-import { IconSun, IconMoonStars } from '@tabler/icons';
+import { IconSun, IconMoonStars } from '@tabler/icons-react';
 
 import { useAtom } from 'jotai';
 import { isMobileUiAtom } from 'src/atoms/uiMode';

@@ -14,7 +14,7 @@ import {
 } from '@mantine/core';
 import { useForm, hasLength, isEmail } from '@mantine/form';
 import { showNotification, hideNotification } from '@mantine/notifications';
-import { IconCheck } from '@tabler/icons';
+import { IconCheck } from '@tabler/icons-react';
 
 const ContactPage: NextPage = () => {
   const form = useForm({
