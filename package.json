@@ -10,8 +10,8 @@
     "generate": "env-cmd -f ./.env.local graphql-codegen --config codegen.ts"
   },
   "dependencies": {
-    "@emotion/react": "11.10.5",
-    "@emotion/server": "11.10.0",
+    "@emotion/react": "11.11.3",
+    "@emotion/server": "11.11.0",
     "@mantine/core": "5.10.1",
     "@mantine/form": "5.10.1",
     "@mantine/hooks": "5.10.1",
