@@ -13,7 +13,7 @@ specifiers:
   '@mantine/hooks': 5.10.1
   '@mantine/next': 5.10.1
   '@mantine/notifications': ^5.10.0
-  '@tabler/icons': 1.119.0
+  '@tabler/icons': 2.47.0
   '@types/node': 18.11.18
   '@types/react': 18.0.26
   '@types/react-dom': 18.0.10
@@ -46,7 +46,7 @@ dependencies:
   '@mantine/hooks': 5.10.1_react@18.2.0
   '@mantine/next': 5.10.1_d5xj5jipthoiwqd5a5nbaex2p4
   '@mantine/notifications': 5.10.0_ynz4r3bmi75slbqnmaycv7w7wa
-  '@tabler/icons': 1.119.0_biqbaboplfbrettd7655fr4n2y
+  '@tabler/icons': 2.47.0
   '@vercel/og': 0.0.26
   classnames: 2.3.2
   dayjs: 1.11.7
@@ -1995,19 +1995,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@tabler/icons/1.119.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-Fk3Qq4w2SXcTjc/n1cuL5bccPkylrOMo7cYpQIf/yw6zP76LQV9dtLcHQUjFiUnaYuswR645CnURIhlafyAh9g==}
-    peerDependencies:
-      react: ^16.x || 17.x || 18.x
-      react-dom: ^16.x || 17.x || 18.x
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
+  /@tabler/icons/2.47.0:
+    resolution: {integrity: sha512-4w5evLh+7FUUiA1GucvGj2ReX2TvOjEr4ejXdwL/bsjoSkof6r1gQmzqI+VHrE2CpJpB3al7bCTulOkFa/RcyA==}
     dev: false
 
   /@tootallnate/once/2.0.0:
